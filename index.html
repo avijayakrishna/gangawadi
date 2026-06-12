@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gangawadi International | Global Handicraft Marketplace Coming Soon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-error": "#ffffff",
+                "tertiary-fixed-dim": "#c9c6c0",
+                "error": "#ba1a1a",
+                "surface": "#fcf9f8",
+                "secondary": "#6f5a4c",
+                "on-secondary": "#ffffff",
+                "on-secondary-fixed": "#27180d",
+                "surface-container-highest": "#e5e2e1",
+                "error-container": "#ffdad6",
+                "on-primary-container": "#513900",
+                "on-secondary-fixed-variant": "#564336",
+                "on-tertiary": "#ffffff",
+                "surface-variant": "#e5e2e1",
+                "inverse-surface": "#313030",
+                "secondary-fixed-dim": "#ddc1b0",
+                "surface-container-high": "#eae7e7",
+                "surface-bright": "#fcf9f8",
+                "on-primary-fixed-variant": "#5d4200",
+                "surface-container-low": "#f6f3f2",
+                "on-tertiary-fixed": "#1c1c18",
+                "primary-fixed-dim": "#e9c175",
+                "on-background": "#1c1b1b",
+                "outline-variant": "#d1c5b4",
+                "on-surface": "#1c1b1b",
+                "surface-tint": "#785917",
+                "primary-container": "#c9a35a",
+                "secondary-container": "#f7dac8",
+                "primary": "#785917",
+                "surface-container": "#f0eded",
+                "on-tertiary-container": "#3e3d39",
+                "primary-fixed": "#ffdea5",
+                "tertiary-fixed": "#e5e2db",
+                "inverse-primary": "#e9c175",
+                "surface-dim": "#dcd9d9",
+                "surface-container-lowest": "#ffffff",
+                "inverse-on-surface": "#f3f0ef",
+                "on-secondary-container": "#745e50",
+                "tertiary-container": "#aaa8a2",
+                "on-tertiary-fixed-variant": "#474742",
+                "on-primary": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-primary-fixed": "#261900",
+                "outline": "#807667",
+                "on-surface-variant": "#4e4639",
+                "tertiary": "#5f5e59",
+                "background": "#fcf9f8",
+                "secondary-fixed": "#faddcb"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "64px",
+                "section-gap": "120px",
+                "unit": "8px",
+                "gutter": "24px",
+                "margin-mobile": "16px",
+                "container-max": "1280px"
+            },
+            "fontFamily": {
+                "headline-lg-mobile": ["Playfair Display"],
+                "body-lg": ["Montserrat"],
+                "label-sm": ["Montserrat"],
+                "display-lg": ["Playfair Display"],
+                "headline-lg": ["Playfair Display"],
+                "body-md": ["Montserrat"],
+                "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+        .slide-up { animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .world-map-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/world-map.png');
+            opacity: 0.03;
+        }
+
+        .gold-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #785917, transparent);
+            width: 120px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(59, 42, 30, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline/10 flex justify-between items-center px-margin-desktop max-w-container-max mx-auto h-20">
+<div class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-primary-fixed-dim uppercase">GANGAWADI</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Heritage</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Exports</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Contact</a>
+<button class="bg-primary text-on-primary px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-tint transition-all cursor-pointer active:opacity-70">Inquire Now</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-20 px-margin-mobile md:px-margin-desktop text-center overflow-hidden">
+<!-- Background Effects -->
+<div class="absolute inset-0 world-map-bg pointer-events-none"></div>
+<div class="absolute top-1/4 -right-24 w-96 h-96 bg-primary-fixed-dim/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -left-24 w-96 h-96 bg-secondary-fixed/10 rounded-full blur-[120px]"></div>
+<div class="z-10 max-w-4xl slide-up">
+<div class="mb-12 flex justify-center">
+<img alt="Gangawadi International Logo" class="w-48 h-auto shadow-2xl rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHMsBwYVfRRSo2yBYjV-4KUaqYgqRqEYVxsRCOHG7tAUgHu7NEsUWbkjG_YOcLp05yeZ4rCOpAtlWpHsV12ixtf7NfZ23_QIZ0f1_P401NvIZGqXwnK28sfHsZamPVOu0QPs2As3aowigTdRzjNoOF28pVB4BKjMO_Us_H6yE_wqCR1KDN0EgFbm1DNLCOOUGxwr1YSkeR9J1SB9I1enTg_Rku6rL9OyLjyVRuYpXcEA5uZgLl8ddyp2-WKC_Q8VlCuJ6HjLjDW5c"/>
+</div>
+<h1 class="font-display-lg text-headline-lg md:text-display-lg text-primary mb-6">
+                Our Global Handicraft Marketplace is Coming Soon
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
+                Connecting the artistry of India with customers across the world. We are preparing something exceptional for global buyers, wholesalers, and retailers.
+            </p>
+<!-- Countdown Timer -->
+<div class="grid grid-cols-4 gap-4 md:gap-8 mb-12 max-w-xl mx-auto" id="countdown">
+<div class="flex flex-col items-center p-4 glass-card rounded-lg border border-outline/10">
+<span class="font-display-lg text-headline-lg text-primary" id="days">00</span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant">Days</span>
+</div>
+<div class="flex flex-col items-center p-4 glass-card rounded-lg border border-outline/10">
+<span class="font-display-lg text-headline-lg text-primary" id="hours">00</span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant">Hours</span>
+</div>
+<div class="flex flex-col items-center p-4 glass-card rounded-lg border border-outline/10">
+<span class="font-display-lg text-headline-lg text-primary" id="minutes">00</span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant">Mins</span>
+</div>
+<div class="flex flex-col items-center p-4 glass-card rounded-lg border border-outline/10">
+<span class="font-display-lg text-headline-lg text-primary" id="seconds">00</span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant">Secs</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<a class="bg-primary text-on-primary px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-tint transition-all rounded-sm" href="#early-access">Get Early Access</a>
+<a class="border border-primary text-primary px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary/5 transition-all rounded-sm" href="#contact">Contact Us</a>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low relative overflow-hidden">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col items-center text-center mb-16">
+<div class="gold-divider mb-6"></div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Bringing Indian Craftsmanship to the World</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Curating the finest artisanal excellence through streamlined global export solutions.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- About Cards -->
+<div class="p-8 bg-white border border-outline/10 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform block">public</span>
+<h3 class="font-headline-md text-headline-md mb-3 text-secondary">Global Shipping</h3>
+<p class="text-on-surface-variant">Strategic logistics reaching wholesalers in 40+ countries with door-to-door tracking.</p>
+</div>
+<div class="p-8 bg-white border border-outline/10 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform block">verified</span>
+<h3 class="font-headline-md text-headline-md mb-3 text-secondary">Premium Quality</h3>
+<p class="text-on-surface-variant">Each piece undergoes rigorous multi-stage quality checks before being packaged for export.</p>
+</div>
+<div class="p-8 bg-white border border-outline/10 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform block">handshake</span>
+<h3 class="font-headline-md text-headline-md mb-3 text-secondary">Trusted Sourcing</h3>
+<p class="text-on-surface-variant">Direct relationships with master artisans ensuring authentic provenance and fair trade.</p>
+</div>
+<div class="p-8 bg-white border border-outline/10 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform block">box_edit</span>
+<h3 class="font-headline-md text-headline-md mb-3 text-secondary">Export Focus</h3>
+<p class="text-on-surface-variant">Compliant documentation and custom packaging designed for international retail standards.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Export Categories Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16 text-primary">Export Specialties</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Category 1 -->
+<div class="relative h-[450px] group overflow-hidden cursor-pointer bg-secondary-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up high-end Channapatna wooden toys with vibrant natural lacquered colors. The lighting is soft and directional, emphasizing the glossy texture and organic shapes. The aesthetic is modern-luxury, showcasing traditional Indian craftsmanship against a neutral, minimal ivory background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtWpFaxWY4YdjFETguq6N0tJwBxBIuOh804EVB4-E6vdBRX7igXRddJ2NTIOBplWmV-HiJjBaIh9kTXbIqBPqEV2Wv7QD-eT4ZZI4KnOTzntlCCHZL4ca4lmuLuv0e5ELsg1-9uUaG9sUZIuYFjk1K99_q4CydNWVvJDW4MxKvG1apF5SKiJqAIoun6hmEPcHEn9xQX-3IV0t7iASVZxPdJljonjeeWV3DPfir64I5tWvzWXfIin73dOFJhsMPCPIfq3k_EupiEFI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed mb-2">Artisanal</p>
+<h4 class="font-headline-md text-headline-md text-white">Channapatna Toys</h4>
+</div>
+</div>
+<!-- Category 2 -->
+<div class="relative h-[450px] group overflow-hidden cursor-pointer bg-secondary-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Exquisite wooden handicraft box with intricate carvings. The dark wood glows with a satin finish under gallery-style lighting. The composition is focused and editorial, highlighting the detailed hand-engraved patterns that represent centuries of Indian woodcraft heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMkq8dDllzE875mucCX0hN1G6p4WqflCcj8tPANKPMKPEy0pBfvAzI6IGBuUCD6Xc5KPjaBidfqwgc51L6_JRpzKXlCOdNA0DrAQDr12qG3kCwdII9-QxkFEjz_IaOyy1pEfNaieDpGek4pv6ssiHdh_5xwOnvs975OlyiWlmUwgHzW5HEpetM-gRcUx7o4jTepkEI22LMj0wJ9IhfQfm2tY0mwIX46zpwedCFP4oIriJ7IfZVJxvc6Qh-VwGmNiV18Ex_8sgWFfA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed mb-2">Timeless</p>
+<h4 class="font-headline-md text-headline-md text-white">Wooden Handicrafts</h4>
+</div>
+</div>
+<!-- Category 3 -->
+<div class="relative h-[450px] group overflow-hidden cursor-pointer bg-secondary-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Luxury home decor setup featuring handcrafted Indian pottery and textiles in a minimalist modern living space. Soft sunlight spills across the warm ivory walls, illuminating the organic textures and gold accents of the decor pieces. The mood is sophisticated, peaceful, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWvFlUEFpbmY7skgwbXFEEc5x_rRLtSHKK6UlFnHOcViXcDf9hKvOq2qBuLcB9nC1w1_ix2zEn1JCVPYFNvS_KiUSwyI8YgtWwZB_AlhfRE6F04xuY5TeeBZVHXLngY5I7Iy52MoBn4WEyppPK0IV1OIjjOFktNTeS9LrOS4PwQV6BjAueoCyDEaHP861hodtmVTg4vVm2WODdwKVASgN2BRAgGtyjSF-G5VWdzBK4jWNvYRnnrWZbp0EjsJhYgLB_PHmTeyi6y24"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed mb-2">Elegant</p>
+<h4 class="font-headline-md text-headline-md text-white">Home Decor</h4>
+</div>
+</div>
+<!-- Category 4 -->
+<div class="relative h-[450px] group overflow-hidden cursor-pointer bg-secondary-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Curated collection of artisanal gift articles wrapped in premium materials with gold foil accents. The setting is a clean, bright studio with high-key lighting. The style is professional and commercial, perfect for a high-end global handicraft marketplace aiming at international B2B buyers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlVg3tZdX4N_vEFIPKx7SWNcsccHwvBPmcMiwFRN97Rd9OD3gbyb4VeOV_LAgJlyYG3TEOr6FZdLdrLx2QIfxgX2qq99JAq_C_asCa2EtKi7JgM3ZCyHShFSJbgNQQmlruMwG3VymjmxQQsf1iXp-rcpp3WbV21ZsmYLva2d0H7LChlupSzjkAq84yJtXzzFpTvkpKsZtR4lUbNliQ49Oy6kB4ebM-iVHyFb_eRanJSOaJzJ3Go9BPzrE6aRRXdxY8F-Gbi4A7nsk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed mb-2">Bespoke</p>
+<h4 class="font-headline-md text-headline-md text-white">Gift Articles</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust & Certification Section -->
+<section class="py-24 bg-surface px-margin-mobile md:px-margin-desktop border-y border-outline/5">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-70 hover:opacity-100 transition-opacity">
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-5xl text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-center">IEC Certified</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-5xl text-primary" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-center">MSME Registered</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-5xl text-primary" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-center">Export Compliant</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-5xl text-primary" style="font-variation-settings: 'FILL' 1;">new_releases</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-center">Quality Assured</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Capture Form -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop relative" id="early-access">
+<div class="max-w-4xl mx-auto glass-card p-12 md:p-20 rounded-lg relative z-10 border border-outline/10">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Priority Registration</h2>
+<p class="text-on-surface-variant font-body-md">Join our exclusive network of global partners and receive the first look at our export-ready collections.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-gutter" id="waitlist-form">
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm uppercase tracking-widest text-secondary">Full Name</label>
+<input class="w-full bg-white/50 border-0 border-b-2 border-outline/20 focus:border-primary focus:ring-0 transition-colors py-3" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm uppercase tracking-widest text-secondary">Work Email</label>
+<input class="w-full bg-white/50 border-0 border-b-2 border-outline/20 focus:border-primary focus:ring-0 transition-colors py-3" placeholder="john@company.com" required="" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm uppercase tracking-widest text-secondary">Company Name</label>
+<input class="w-full bg-white/50 border-0 border-b-2 border-outline/20 focus:border-primary focus:ring-0 transition-colors py-3" placeholder="Luxe Retail Inc." type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm uppercase tracking-widest text-secondary">Country</label>
+<input class="w-full bg-white/50 border-0 border-b-2 border-outline/20 focus:border-primary focus:ring-0 transition-colors py-3" placeholder="United States" required="" type="text"/>
+</div>
+<div class="md:col-span-2 pt-6">
+<button class="w-full bg-primary text-on-primary py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-tint transition-all group flex items-center justify-center gap-3" type="submit">
+                        Join Global Network
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Decorative ship motif -->
+<div class="absolute bottom-0 right-0 opacity-10 pointer-events-none translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined text-[400px] text-primary">sailing</span>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-low w-full mt-section-gap border-t border-outline-variant/20 py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-display-lg text-headline-md text-primary uppercase">GANGAWADI</div>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant text-center md:text-left">© 2024 Gangawadi International. All Rights Reserved. Artisanal Excellence from India.</p>
+</div>
+<div class="flex gap-8 items-center">
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant hover:text-primary transition-colors inline-block hover:-translate-y-0.5 transition-transform" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant hover:text-primary transition-colors inline-block hover:-translate-y-0.5 transition-transform" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant hover:text-primary transition-colors inline-block hover:-translate-y-0.5 transition-transform" href="#">Export Documentation</a>
+</div>
+</footer>
+<script>
+        // Countdown Timer Logic
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 45); // Set to 45 days from now
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "LAUNCHING NOW";
+            }
+        }
+
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Form Submission Interaction
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> PROCESSING...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = 'WELCOME TO THE NETWORK';
+                btn.classList.replace('bg-primary', 'bg-green-600');
+                this.reset();
+            }, 1500);
+        });
+
+        // Smooth Appearance for Scroll Elements
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body></html>
