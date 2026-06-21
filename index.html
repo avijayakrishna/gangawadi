@@ -139,15 +139,21 @@
 <header class="fixed top-0 w-full z-50 glass-nav bg-ivory/80 border-b border-cream/30 shadow-sm h-20 transition-all duration-300">
 <div class="max-w-container-max mx-auto px-8 h-full flex justify-between items-center">
 <div class="flex items-center gap-3">
-<img alt="Gangawadi Logo" class="h-14 w-auto object-contain transition-transform hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6yfgDcAen7MDnhWSrz-UdLKAniOPnJ2zjVG4Rgx5dvdT_WXZj1BIwJfHTQgNVP4tzsJOaDJHpWCo9DeeGUg7yncGxPqckgP65F3EOyI9LYv6rFXlTyRw8r2FYoNMhXdc9pFgrAL3XctL4GNWDptGJzhOUaBffnuq4AO3rwUyAaNqenRX0GY_41E9CzIhiK50lOnlYwjPWsJjiUxp2775zVsuPvTM2ywT3qPIPDiiTLz9u-jeBVfJhaEtafrLSnzzDO1VaEpj2AQKB"/>
+<a href="index.html">
+  <img
+    alt="Gangawadi Logo"
+    class="h-14 w-auto object-contain transition-transform hover:scale-105"
+    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6yfgDcAen7MDnhWSrz-UdLKAniOPnJ2zjVG4Rgx5dvdT_WXZj1BIwJfHTQgNVP4tzsJOaDJHpWCo9DeeGUg7yncGxPqckgP65F3EOyI9LYv6rFXlTyRw8r2FYoNMhXdc9pFgrAL3XctL4GNWDptGJzhOUaBffnuq4AO3rwUyAaNqenRX0GY_41E9CzIhiK50lOnlYwjPWsJjiUxp2775zVsuPvTM2ywT3qPIPDiiTLz9u-jeBVfJhaEtafrLSnzzDO1VaEpj2AQKB"
+  />
+</a>
 <div class="hidden sm:block">
 <span class="block font-headline-md text-headline-md font-bold text-deep-charcoal tracking-tighter leading-none">GANGAWADI</span>
 <span class="block font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary">International</span>
 </div>
 </div>
 <nav class="hidden md:flex items-center gap-8">
-<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#handicrafts">Handicrafts</a>
-<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#agriculture">Agriculture</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#tab-handicrafts">Handicrafts</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#tab-agriculture">Agriculture</a>
 <a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#heritage">Heritage</a>
 <a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#process">Process</a>
 <a class="font-label-lg text-label-lg uppercase tracking-widest bg-primary text-paper-white px-6 py-2.5 rounded-full hover:opacity-90 transition-opacity active:scale-95 transition-transform" href="#contact">Partner With Us</a>
@@ -588,30 +594,31 @@
 </div>
 </div>
 <div class="bg-surface-bright p-10 rounded-3xl shadow-xl border border-cream ivory-texture relative">
-<form class="space-y-6" onsubmit="event.preventDefault(); alert('Enquiry Sent! Our export desk will contact you within 24 hours.')">
+<form class="space-y-6" action="thank-you.html" method="get">
 <div class="grid md:grid-cols-2 gap-6">
 <div class="space-y-2">
 <label class="font-label-sm uppercase tracking-widest text-on-surface-variant">Full Name</label>
-<input class="w-full bg-paper-white border-outline-variant/30 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-heritage-gold transition-colors" placeholder="Name" required="" type="text"/>
+<input class="w-full bg-paper-white border-outline-variant/30 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-heritage-gold transition-colors" name="full_name" placeholder="Name" required type="text"/>
 </div>
 <div class="space-y-2">
 <label class="font-label-sm uppercase tracking-widest text-on-surface-variant">Company Name</label>
-<input class="w-full bg-paper-white border-outline-variant/30 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-heritage-gold transition-colors" placeholder="Company Name" required="" type="text"/>
+<input class="w-full bg-paper-white border-outline-variant/30 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-heritage-gold transition-colors" name="company_name" placeholder="Company Name" required type="text"/>
 </div>
 </div>
 <div class="space-y-2">
 <label class="font-label-sm uppercase tracking-widest text-on-surface-variant">Interest Category</label>
-<select class="w-full bg-paper-white border-outline-variant/30 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-heritage-gold transition-colors">
-<option>Channapatna Lacquerware</option>
-<option>Bidriware Metal Inlay</option>
-<option>Heritage Fine Arts (Kinnal)</option>
-<option>Agricultural Superfoods</option>
-<option>Sustainable Coir Products</option>
+<select name="interest_category" class="w-full bg-paper-white border-outline-variant/30 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-heritage-gold transition-colors" required>
+<option value="">Select Interest Category</option>
+<option value="Channapatna Lacquerware">Channapatna Lacquerware</option>
+<option value="Bidriware Metal Inlay">Bidriware Metal Inlay</option>
+<option value="Heritage Fine Arts (Kinnal)">Heritage Fine Arts (Kinnal)</option>
+<option value="Agricultural Superfoods">Agricultural Superfoods</option>
+<option value="Sustainable Coir Products">Sustainable Coir Products</option>
 </select>
 </div>
 <div class="space-y-2">
 <label class="font-label-sm uppercase tracking-widest text-on-surface-variant">Your Message</label>
-<textarea class="w-full bg-paper-white border-outline-variant/30 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-heritage-gold transition-colors" placeholder="Specific quantity, destination, and certification requirements..." rows="4"></textarea>
+<textarea name="message" class="w-full bg-paper-white border-outline-variant/30 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-heritage-gold transition-colors" placeholder="Specific quantity, destination, and certification requirements..." rows="4" required></textarea>
 </div>
 <button class="w-full py-4 bg-deep-charcoal text-heritage-gold font-label-lg uppercase tracking-[0.2em] rounded-xl hover:bg-black transition-all shadow-lg active:scale-95" type="submit">Send Formal Enquiry</button>
 <p class="text-center text-[11px] text-on-surface-variant uppercase tracking-widest opacity-60">Corporate sourcing response within 24 hours.</p>
