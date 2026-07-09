@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>GANGAWADI — Authentic GI-Tagged Heritage Exports</title>
-  
+
   <!-- Favicon (Crisp Golden Paisley Sail Coin Emblem SVG) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23D4AF37' stroke-width='4'/%3E%3Cpath d='M50,15 C65,25 70,45 60,65 C55,75 45,75 40,65 C30,45 35,25 50,15 Z' fill='%23D4AF37'/%3E%3Cpath d='M25,65 L75,65 C70,80 30,80 25,65 Z' fill='%23964400'/%3E%3C/svg%3E">
-  
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23D4AF37' stroke-width='4'/%3E%3Cpath d='M50,15 C65,25 70,45 60,65 C55,75 45,75 40,65 C30,45 35,25 50,15 Z' fill='%23D4AF37'/%3E%3Cpath d='M25,65 L75,65 C70,80 30,80 25,65 Z' fill='%23964400'/%3E%3C/svg%3E">
+
   <!-- Tailwind CSS & Plugins -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  
+
   <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
   <!-- Material Symbols -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
   <style>
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
       transition: font-variation-settings 0.3s ease;
     }
-    
+
     /* Elegant Micro-Textures */
     .ivory-texture {
       background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
     }
-    
+
     /* Gold Foil Text Effect */
     .gold-gradient-text {
       background: linear-gradient(135deg, #ECC260 0%, #D4AF37 40%, #B8860B 70%, #9A7B1C 100%);
@@ -38,13 +43,16 @@
     }
 
     @keyframes shine-text {
-      to { background-position: 200% center; }
+      to {
+        background-position: 200% center;
+      }
     }
-    
+
     /* Premium Hover States */
     .card-hover-lift {
       transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
     }
+
     .card-hover-lift:hover {
       transform: translateY(-8px) scale(1.01);
       box-shadow: 0 20px 40px -15px rgba(26, 18, 9, 0.12);
@@ -61,10 +69,11 @@
       background: linear-gradient(to right, #D4AF37, #964400);
       transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .gold-border-decor:hover::after {
       width: 100%;
     }
-    
+
     .glass-nav {
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -76,6 +85,7 @@
       transform: translateY(30px);
       transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
@@ -86,6 +96,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .shimmer-button::after {
       content: '';
       position: absolute;
@@ -97,6 +108,7 @@
       transform: rotate(30deg);
       transition: none;
     }
+
     .shimmer-button:hover::after {
       left: 150%;
       transition: left 0.8s ease-in-out;
@@ -107,17 +119,57 @@
       grid-template-rows: 0fr;
       transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
     }
+
     .faq-collapse.open {
       grid-template-rows: 1fr;
     }
 
     /* Slow Rotations for Medallions */
     @keyframes slow-rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
+
     .rotate-slow {
       animation: slow-rotate 30s linear infinite;
+    }
+
+    /* Modal Overlay & Panel */
+    .modal-backdrop {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-panel {
+      transform: translateY(40px) scale(0.96);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+    .modal-backdrop.open .modal-panel {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    .modal-panel::-webkit-scrollbar {
+      width: 6px;
+    }
+    .modal-panel::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .modal-panel::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.3);
+      border-radius: 3px;
+    }
+    .modal-panel::-webkit-scrollbar-thumb:hover {
+      background: rgba(212, 175, 55, 0.5);
     }
   </style>
 
@@ -208,16 +260,16 @@
             "stat-num": ["Playfair Display"]
           },
           fontSize: {
-            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
-            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-            "label-lg": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
-            "headline-lg": ["42px", {"lineHeight": "1.2", "fontWeight": "700"}],
-            "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
-            "display-lg": ["72px", {"lineHeight": "1.1", "fontWeight": "700"}],
-            "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "700"}],
-            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-            "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
-            "stat-num": ["48px", {"lineHeight": "1", "fontWeight": "700"}]
+            "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "headline-lg": ["42px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "display-lg": ["72px", { "lineHeight": "1.1", "fontWeight": "700" }],
+            "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+            "stat-num": ["48px", { "lineHeight": "1", "fontWeight": "700" }]
           }
         },
       },
@@ -225,133 +277,206 @@
   </script>
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M4DZH62P');</script>
+  <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-M4DZH62P');</script>
   <!-- End Google Tag Manager -->
 </head>
-<body class="bg-paper-white text-on-surface font-body-md overflow-x-hidden antialiased selection:bg-heritage-gold/30 selection:text-deep-charcoal">
+
+<body
+  class="bg-paper-white text-on-surface font-body-md overflow-x-hidden antialiased selection:bg-heritage-gold/30 selection:text-deep-charcoal">
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4DZH62P"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4DZH62P" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  
+
   <!-- TOP APP BAR -->
-  <header class="fixed top-0 w-full z-50 glass-nav bg-ivory/80 border-b border-cream/30 shadow-sm h-20 transition-all duration-500">
-    <div class="max-w-container-max mx-auto px-6 lg:px-8 h-full flex justify-between items-center gap-4 md:gap-8 lg:gap-12">
+  <header
+    class="fixed top-0 w-full z-50 glass-nav bg-ivory/80 border-b border-cream/30 shadow-sm h-20 transition-all duration-500">
+    <div
+      class="max-w-container-max mx-auto px-6 lg:px-8 h-full flex justify-between items-center gap-4 md:gap-8 lg:gap-12">
       <div class="flex items-center gap-3 shrink-0">
         <a href="index.html" class="flex items-center gap-3">
           <!-- Logo with robust fallback setup -->
-          <img
-            alt="Gangawadi Logo"
+          <img alt="Gangawadi Logo"
             class="h-12 lg:h-14 w-auto object-contain transition-transform duration-500 hover:scale-110 hover:rotate-3 rounded"
             src="logo.jpeg"
-            onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuD6yfgDcAen7MDnhWSrz-UdLKAniOPnJ2zjVG4Rgx5dvdT_WXZj1BIwJfHTQgNVP4tzsJOaDJHpWCo9DeeGUg7yncGxPqckgP65F3EOyI9LYv6rFXlTyRw8r2FYoNMhXdc9pFgrAL3XctL4GNWDptGJzhOUaBffnuq4AO3rwUyAaNqenRX0GY_41E9CzIhiK50lOnlYwjPWsJjiUxp2775zVsuPvTM2ywT3qPIPDiiTLz9u-jeBVfJhaEtafrLSnzzDO1VaEpj2AQKB';"
-          />
+            onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuD6yfgDcAen7MDnhWSrz-UdLKAniOPnJ2zjVG4Rgx5dvdT_WXZj1BIwJfHTQgNVP4tzsJOaDJHpWCo9DeeGUg7yncGxPqckgP65F3EOyI9LYv6rFXlTyRw8r2FYoNMhXdc9pFgrAL3XctL4GNWDptGJzhOUaBffnuq4AO3rwUyAaNqenRX0GY_41E9CzIhiK50lOnlYwjPWsJjiUxp2775zVsuPvTM2ywT3qPIPDiiTLz9u-jeBVfJhaEtafrLSnzzDO1VaEpj2AQKB';" />
           <div class="hidden sm:block">
-            <span class="block font-headline-md text-base md:text-lg lg:text-xl xl:text-[22px] font-bold text-deep-charcoal tracking-wider leading-none">GANGAWADI</span>
-            <span class="block font-label-sm text-[8px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.25em] text-primary mt-1">International</span>
+            <span
+              class="block font-headline-md text-base md:text-lg lg:text-xl xl:text-[22px] font-bold text-deep-charcoal tracking-wider leading-none">GANGAWADI</span>
+            <span
+              class="block font-label-sm text-[8px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.25em] text-primary mt-1">International</span>
           </div>
         </a>
       </div>
-      
+
       <!-- Desktop Navigation & Alignments -->
       <nav class="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 h-full">
         <!-- Menu Items with custom adaptive sizing preventing layout overflow -->
         <div class="flex items-center gap-3 lg:gap-5 xl:gap-7">
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0" href="#handicrafts">Handicrafts</a>
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0" href="#agriculture">Agriculture</a>
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0" href="#heritage">Heritage</a>
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0" href="#process">Process</a>
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0" href="#faq">FAQ</a>
+          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+            href="#handicrafts">Handicrafts</a>
+          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+            href="#agriculture">Agriculture</a>
+          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+            href="#heritage">Heritage</a>
+          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+            href="#process">Process</a>
+          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+            href="#faq">FAQ</a>
+          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0 cursor-pointer"
+            onclick="openQualityModal(event)">Quality</a>
         </div>
-        
+
         <!-- Social Icons Block with absolute vertical centering & separator -->
         <div class="flex items-center gap-3 border-l border-cream/60 pl-4 lg:pl-6 h-6 shrink-0">
           <!-- LinkedIn -->
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary transition-all duration-300 transform hover:scale-110 flex items-center" aria-label="LinkedIn">
-            <svg class="h-4 lg:h-4.5 w-4 lg:w-4.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+            class="text-on-surface-variant hover:text-primary transition-all duration-300 transform hover:scale-110 flex items-center"
+            aria-label="LinkedIn">
+            <svg class="h-4 lg:h-4.5 w-4 lg:w-4.5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
           </a>
           <!-- Instagram -->
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary transition-all duration-300 transform hover:scale-110 flex items-center" aria-label="Instagram">
-            <svg class="h-4 lg:h-4.5 w-4 lg:w-4.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+            class="text-on-surface-variant hover:text-primary transition-all duration-300 transform hover:scale-110 flex items-center"
+            aria-label="Instagram">
+            <svg class="h-4 lg:h-4.5 w-4 lg:w-4.5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
           </a>
           <!-- Facebook -->
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary transition-all duration-300 transform hover:scale-110 flex items-center" aria-label="Facebook">
-            <svg class="h-4 lg:h-4.5 w-4 lg:w-4.5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+            class="text-on-surface-variant hover:text-primary transition-all duration-300 transform hover:scale-110 flex items-center"
+            aria-label="Facebook">
+            <svg class="h-4 lg:h-4.5 w-4 lg:w-4.5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+            </svg>
           </a>
           <!-- WhatsApp -->
-          <a href="https://wa.me/919066619431" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary transition-all duration-300 transform hover:scale-110 flex items-center" aria-label="WhatsApp">
-            <svg class="h-4 lg:h-4.5 w-4 lg:w-4.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.47 4.925 1.47 5.41 0 9.811-4.403 9.813-9.814.001-2.618-1.01-5.079-2.852-6.924C16.691 1.94 14.238.922 11.618.92 6.208.92 1.808 5.321 1.806 10.733c-.001 1.724.463 3.411 1.344 4.901l-.997 3.642 3.894-.982zm11.492-7.616c-.314-.157-1.857-.915-2.145-1.02-.288-.105-.499-.157-.708.157-.208.314-.808 1.02-.99 1.228-.182.208-.364.236-.678.079-.314-.157-1.328-.49-2.532-1.563-.936-.836-1.568-1.868-1.751-2.182-.182-.314-.02-.484.137-.641.141-.14.314-.368.471-.552.157-.184.21-.314.314-.525.105-.21.052-.394-.026-.552-.079-.157-.708-1.706-.971-2.336-.256-.615-.517-.532-.708-.541-.184-.01-.395-.01-.605-.01s-.552.079-.841.394c-.289.314-1.103 1.077-1.103 2.627 0 1.55 1.129 3.048 1.287 3.258.158.21 2.221 3.391 5.38 4.755.753.325 1.34.519 1.799.665.757.241 1.446.207 1.99.126.607-.09 1.857-.761 2.119-1.458.263-.696.263-1.293.184-1.42-.079-.126-.289-.209-.604-.366z"/></svg>
+          <a href="https://wa.me/919066619431" target="_blank" rel="noopener noreferrer"
+            class="text-on-surface-variant hover:text-primary transition-all duration-300 transform hover:scale-110 flex items-center"
+            aria-label="WhatsApp">
+            <svg class="h-4 lg:h-4.5 w-4 lg:w-4.5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.47 4.925 1.47 5.41 0 9.811-4.403 9.813-9.814.001-2.618-1.01-5.079-2.852-6.924C16.691 1.94 14.238.922 11.618.92 6.208.92 1.808 5.321 1.806 10.733c-.001 1.724.463 3.411 1.344 4.901l-.997 3.642 3.894-.982zm11.492-7.616c-.314-.157-1.857-.915-2.145-1.02-.288-.105-.499-.157-.708.157-.208.314-.808 1.02-.99 1.228-.182.208-.364.236-.678.079-.314-.157-1.328-.49-2.532-1.563-.936-.836-1.568-1.868-1.751-2.182-.182-.314-.02-.484.137-.641.141-.14.314-.368.471-.552.157-.184.21-.314.314-.525.105-.21.052-.394-.026-.552-.079-.157-.708-1.706-.971-2.336-.256-.615-.517-.532-.708-.541-.184-.01-.395-.01-.605-.01s-.552.079-.841.394c-.289.314-1.103 1.077-1.103 2.627 0 1.55 1.129 3.048 1.287 3.258.158.21 2.221 3.391 5.38 4.755.753.325 1.34.519 1.799.665.757.241 1.446.207 1.99.126.607-.09 1.857-.761 2.119-1.458.263-.696.263-1.293.184-1.42-.079-.126-.289-.209-.604-.366z" />
+            </svg>
           </a>
         </div>
-        
+
         <!-- CTA button scale constraints preventing baseline wrap -->
-        <a class="shimmer-button font-label-lg text-[10px] lg:text-[12px] xl:text-label-lg uppercase tracking-wider lg:tracking-widest bg-primary text-paper-white px-4 lg:px-6 xl:px-7 py-2.5 lg:py-3 rounded-full hover:bg-deep-charcoal hover:shadow-lg transition-all duration-300 transform active:scale-95 shadow-md shadow-primary/15 shrink-0" href="#contact">Partner With Us</a>
+        <a class="shimmer-button font-label-lg text-[10px] lg:text-[12px] xl:text-label-lg uppercase tracking-wider lg:tracking-widest bg-primary text-paper-white px-4 lg:px-6 xl:px-7 py-2.5 lg:py-3 rounded-full hover:bg-deep-charcoal hover:shadow-lg transition-all duration-300 transform active:scale-95 shadow-md shadow-primary/15 shrink-0"
+          href="#contact">Partner With Us</a>
       </nav>
 
       <!-- Hamburger Button -->
-      <button class="md:hidden p-2 text-deep-charcoal relative focus:outline-none z-50" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+      <button class="md:hidden p-2 text-deep-charcoal relative focus:outline-none z-50" id="mobile-menu-toggle"
+        aria-label="Toggle navigation menu">
         <span class="material-symbols-outlined text-3xl transition-transform duration-300" id="menu-icon">menu</span>
       </button>
     </div>
   </header>
 
   <!-- MOBILE DRAWER MENU -->
-  <div class="fixed inset-0 z-40 bg-deep-charcoal/60 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-500" id="mobile-menu-backdrop"></div>
-  <aside class="fixed top-0 right-0 h-full w-full max-w-sm bg-ivory ivory-texture z-40 shadow-2xl translate-x-full transition-transform duration-500 ease-out flex flex-col justify-between p-8 pt-24" id="mobile-menu-drawer">
+  <div
+    class="fixed inset-0 z-40 bg-deep-charcoal/60 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-500"
+    id="mobile-menu-backdrop"></div>
+  <aside
+    class="fixed top-0 right-0 h-full w-full max-w-sm bg-ivory ivory-texture z-40 shadow-2xl translate-x-full transition-transform duration-500 ease-out flex flex-col justify-between p-8 pt-24"
+    id="mobile-menu-drawer">
     <nav class="flex flex-col gap-6 text-left">
-      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2" href="#handicrafts">Handicrafts</a>
-      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2" href="#agriculture">Agriculture</a>
-      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2" href="#heritage">Heritage &amp; Dynasty</a>
-      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2" href="#process">Export Process</a>
-      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2" href="#faq">FAQ</a>
+      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2"
+        href="#handicrafts">Handicrafts</a>
+      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2"
+        href="#agriculture">Agriculture</a>
+      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2"
+        href="#heritage">Heritage &amp; Dynasty</a>
+      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2"
+        href="#process">Export Process</a>
+      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2"
+        href="#faq">FAQ</a>
+      <a class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 font-headline-sm text-deep-charcoal hover:text-primary border-b border-cream/50 pb-2 cursor-pointer"
+        onclick="openQualityModal(event)">Sourcing &amp; Quality</a>
     </nav>
     <div class="mobile-nav-item opacity-0 translate-x-4 transition-all duration-500 space-y-6">
       <!-- Integrated Mobile Social Icons -->
       <div class="flex justify-center items-center gap-6 pb-4 border-b border-cream/40">
         <!-- LinkedIn -->
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-deep-charcoal hover:text-primary transition-colors" aria-label="LinkedIn">
-          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+          class="text-deep-charcoal hover:text-primary transition-colors" aria-label="LinkedIn">
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
         </a>
         <!-- Instagram -->
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-deep-charcoal hover:text-primary transition-colors" aria-label="Instagram">
-          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+          class="text-deep-charcoal hover:text-primary transition-colors" aria-label="Instagram">
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
         </a>
         <!-- Facebook -->
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-deep-charcoal hover:text-primary transition-colors" aria-label="Facebook">
-          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+          class="text-deep-charcoal hover:text-primary transition-colors" aria-label="Facebook">
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+          </svg>
         </a>
         <!-- WhatsApp -->
-        <a href="https://wa.me/919066619431" target="_blank" rel="noopener noreferrer" class="text-deep-charcoal hover:text-primary transition-colors" aria-label="WhatsApp">
-          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.47 4.925 1.47 5.41 0 9.811-4.403 9.813-9.814.001-2.618-1.01-5.079-2.852-6.924C16.691 1.94 14.238.922 11.618.92 6.208.92 1.808 5.321 1.806 10.733c-.001 1.724.463 3.411 1.344 4.901l-.997 3.642 3.894-.982zm11.492-7.616c-.314-.157-1.857-.915-2.145-1.02-.288-.105-.499-.157-.708.157-.208.314-.808 1.02-.99 1.228-.182.208-.364.236-.678.079-.314-.157-1.328-.49-2.532-1.563-.936-.836-1.568-1.868-1.751-2.182-.182-.314-.02-.484.137-.641.141-.14.314-.368.471-.552.157-.184.21-.314.314-.525.105-.21.052-.394-.026-.552-.079-.157-.708-1.706-.971-2.336-.256-.615-.517-.532-.708-.541-.184-.01-.395-.01-.605-.01s-.552.079-.841.394c-.289.314-1.103 1.077-1.103 2.627 0 1.55 1.129 3.048 1.287 3.258.158.21 2.221 3.391 5.38 4.755.753.325 1.34.519 1.799.665.757.241 1.446.207 1.99.126.607-.09 1.857-.761 2.119-1.458.263-.696.263-1.293.184-1.42-.079-.126-.289-.209-.604-.366z"/></svg>
+        <a href="https://wa.me/919066619431" target="_blank" rel="noopener noreferrer"
+          class="text-deep-charcoal hover:text-primary transition-colors" aria-label="WhatsApp">
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.47 4.925 1.47 5.41 0 9.811-4.403 9.813-9.814.001-2.618-1.01-5.079-2.852-6.924C16.691 1.94 14.238.922 11.618.92 6.208.92 1.808 5.321 1.806 10.733c-.001 1.724.463 3.411 1.344 4.901l-.997 3.642 3.894-.982zm11.492-7.616c-.314-.157-1.857-.915-2.145-1.02-.288-.105-.499-.157-.708.157-.208.314-.808 1.02-.99 1.228-.182.208-.364.236-.678.079-.314-.157-1.328-.49-2.532-1.563-.936-.836-1.568-1.868-1.751-2.182-.182-.314-.02-.484.137-.641.141-.14.314-.368.471-.552.157-.184.21-.314.314-.525.105-.21.052-.394-.026-.552-.079-.157-.708-1.706-.971-2.336-.256-.615-.517-.532-.708-.541-.184-.01-.395-.01-.605-.01s-.552.079-.841.394c-.289.314-1.103 1.077-1.103 2.627 0 1.55 1.129 3.048 1.287 3.258.158.21 2.221 3.391 5.38 4.755.753.325 1.34.519 1.799.665.757.241 1.446.207 1.99.126.607-.09 1.857-.761 2.119-1.458.263-.696.263-1.293.184-1.42-.079-.126-.289-.209-.604-.366z" />
+          </svg>
         </a>
       </div>
-      <a class="shimmer-button w-full block text-center bg-primary text-paper-white font-label-lg uppercase tracking-widest py-4 rounded-full shadow-lg shadow-primary/25" href="#contact">Partner With Us</a>
-      <p class="text-xs text-center text-on-surface-variant tracking-wider uppercase opacity-75">Sourcing Excellence Globally</p>
+      <a class="shimmer-button w-full block text-center bg-primary text-paper-white font-label-lg uppercase tracking-widest py-4 rounded-full shadow-lg shadow-primary/25"
+        href="#contact">Partner With Us</a>
+      <p class="text-xs text-center text-on-surface-variant tracking-wider uppercase opacity-75">Sourcing Excellence
+        Globally</p>
     </div>
   </aside>
 
   <!-- HERO SECTION -->
   <section class="relative min-h-[95vh] flex items-center pt-20 overflow-hidden bg-ivory ivory-texture" id="home">
     <div class="absolute inset-0 opacity-10 pointer-events-none"></div>
-    <div class="max-w-container-max mx-auto px-8 grid lg:grid-cols-12 gap-12 items-center relative z-10 py-section-padding-desktop">
+    <div
+      class="max-w-container-max mx-auto px-8 grid lg:grid-cols-12 gap-12 items-center relative z-10 py-section-padding-desktop">
       <div class="lg:col-span-7 space-y-8 animate-[fadeInUp_1s_ease-out]">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 shadow-sm animate-pulse">
-          <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
-          <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Indian Government Certified Cluster</span>
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 shadow-sm animate-pulse">
+          <span class="material-symbols-outlined text-secondary text-sm"
+            style="font-variation-settings: 'FILL' 1;">verified</span>
+          <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Indian Government Certified
+            Cluster</span>
         </div>
-        <h1 class="font-display-lg text-display-lg-mobile lg:text-display-lg font-extrabold text-deep-charcoal leading-[1.1] tracking-tight text-balance">
+        <h1
+          class="font-display-lg text-display-lg-mobile lg:text-display-lg font-extrabold text-deep-charcoal leading-[1.1] tracking-tight text-balance">
           Authentic <span class="gold-gradient-text">GI-Tagged</span> Heritage Exports
         </h1>
         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-          Inspired by Western Ganga Heritage. We bridge the gap between centuries-old craftsmanship and global enterprise, delivering certified excellence to 30+ countries.
+          Inspired by Western Ganga Heritage. We bridge the gap between centuries-old craftsmanship and global
+          enterprise, delivering certified excellence to 30+ countries.
         </p>
         <div class="flex flex-wrap gap-4 pt-4">
-          <a class="shimmer-button px-10 py-4 bg-tertiary-container text-paper-white rounded-full font-label-lg text-label-lg uppercase tracking-widest shadow-lg shadow-tertiary-container/20 hover:shadow-xl transition-all hover:-translate-y-1" href="#products">Explore Collections</a>
-          <a class="px-10 py-4 border-2 border-heritage-gold text-deep-charcoal bg-white/50 backdrop-blur-sm rounded-full font-label-lg text-label-lg uppercase tracking-widest hover:bg-heritage-gold/10 transition-all hover:-translate-y-1" href="#contact">Request Sourcing Catalog</a>
+          <a class="shimmer-button px-10 py-4 bg-tertiary-container text-paper-white rounded-full font-label-lg text-label-lg uppercase tracking-widest shadow-lg shadow-tertiary-container/20 hover:shadow-xl transition-all hover:-translate-y-1"
+            href="#products">Explore Collections</a>
+          <a class="px-10 py-4 border-2 border-heritage-gold text-deep-charcoal bg-white/50 backdrop-blur-sm rounded-full font-label-lg text-label-lg uppercase tracking-widest hover:bg-heritage-gold/10 transition-all hover:-translate-y-1"
+            href="#contact">Request Sourcing Catalog</a>
         </div>
         <div class="grid grid-cols-3 gap-8 pt-12 border-t border-cream/50">
           <div class="transform hover:scale-105 transition-transform duration-300">
@@ -360,7 +485,8 @@
           </div>
           <div class="transform hover:scale-105 transition-transform duration-300">
             <p class="font-stat-num text-stat-num text-secondary font-bold">30+</p>
-            <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Global Destinations</p>
+            <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Global Destinations
+            </p>
           </div>
           <div class="transform hover:scale-105 transition-transform duration-300">
             <p class="font-stat-num text-stat-num text-heritage-gold font-bold">100%</p>
@@ -369,8 +495,10 @@
         </div>
       </div>
       <div class="lg:col-span-5 relative hidden lg:block animate-[fadeInRight_1.2s_ease-out]">
-        <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-paper-white transform rotate-3 hover:rotate-0 transition-all duration-700 hover:shadow-[0_25px_50px_rgba(26,18,9,0.2)]">
-          <img class="w-full aspect-[4/5] object-cover" alt="Artisan hand-carving Bidriware decorative craft item" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdU9aDNlNrbLhUe8EO5N_g4wBBnFvVZPLfhyUBOmFBSB5Xrx5K7f6s9RcNYSz2gPIRWbNN0O5mG5xRXukUrVqLsXapO7PEz_LuHQpRCQaLht5pOyNqOGCXYc13FTVhS2dV_C-oBs8Fa5Y6iPfhMJxEArC72QpRC4XKFKR6BL_zQqhqrd1hOcuKOWkdqCrdD9lkfQmWamlAyKzP4NvIW35Ah3q_BZznvhYOxse2nUn09ckS6wPlelipx3ggQl-l74AJCXy1h8Qbp0-o"/>
+        <div
+          class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-paper-white transform rotate-3 hover:rotate-0 transition-all duration-700 hover:shadow-[0_25px_50px_rgba(26,18,9,0.2)]">
+          <img class="w-full aspect-[4/5] object-cover" alt="Artisan hand-carving Bidriware decorative craft item"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdU9aDNlNrbLhUe8EO5N_g4wBBnFvVZPLfhyUBOmFBSB5Xrx5K7f6s9RcNYSz2gPIRWbNN0O5mG5xRXukUrVqLsXapO7PEz_LuHQpRCQaLht5pOyNqOGCXYc13FTVhS2dV_C-oBs8Fa5Y6iPfhMJxEArC72QpRC4XKFKR6BL_zQqhqrd1hOcuKOWkdqCrdD9lkfQmWamlAyKzP4NvIW35Ah3q_BZznvhYOxse2nUn09ckS6wPlelipx3ggQl-l74AJCXy1h8Qbp0-o" />
         </div>
         <div class="absolute -top-12 -right-12 w-64 h-64 bg-heritage-gold/15 rounded-full blur-3xl"></div>
         <div class="absolute -bottom-12 -left-12 w-64 h-64 bg-primary/15 rounded-full blur-3xl"></div>
@@ -382,49 +510,78 @@
   <section class="py-section-padding-desktop bg-paper-white relative overflow-hidden">
     <div class="max-w-container-max mx-auto px-8">
       <div class="text-center mb-16 reveal">
-        <span class="font-label-lg text-label-lg text-primary uppercase tracking-widest block mb-4">Foundation of Excellence</span>
+        <span class="font-label-lg text-label-lg text-primary uppercase tracking-widest block mb-4">Foundation of
+          Excellence</span>
         <h2 class="font-headline-lg text-headline-lg text-deep-charcoal">The Five Pillars of Trust</h2>
       </div>
       <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-6">
         <!-- Pillar 1 -->
-        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal" style="transition-delay: 100ms;">
-          <div class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-heritage-gold/15 transition-all duration-500 transform group-hover:rotate-12">
-            <span class="material-symbols-outlined text-4xl text-heritage-gold group-hover:scale-110">verified_user</span>
+        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal"
+          style="transition-delay: 100ms;">
+          <div
+            class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-heritage-gold/15 transition-all duration-500 transform group-hover:rotate-12">
+            <span
+              class="material-symbols-outlined text-4xl text-heritage-gold group-hover:scale-110">verified_user</span>
           </div>
-          <h3 class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-heritage-gold transition-colors font-semibold">Authenticity</h3>
-          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Direct GI-tagged sourcing from native Karnataka clusters.</p>
+          <h3
+            class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-heritage-gold transition-colors font-semibold">
+            Authenticity</h3>
+          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Direct GI-tagged sourcing from native
+            Karnataka clusters.</p>
         </div>
         <!-- Pillar 2 -->
-        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal" style="transition-delay: 200ms;">
-          <div class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/15 transition-all duration-500 transform group-hover:rotate-12">
+        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal"
+          style="transition-delay: 200ms;">
+          <div
+            class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/15 transition-all duration-500 transform group-hover:rotate-12">
             <span class="material-symbols-outlined text-4xl text-secondary group-hover:scale-110">eco</span>
           </div>
-          <h3 class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-secondary transition-colors font-semibold">Sustainability</h3>
-          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Organic dyes, local timber, and zero chemical toxicity.</p>
+          <h3
+            class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-secondary transition-colors font-semibold">
+            Sustainability</h3>
+          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Organic dyes, local timber, and zero
+            chemical toxicity.</p>
         </div>
         <!-- Pillar 3 -->
-        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal" style="transition-delay: 300ms;">
-          <div class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/15 transition-all duration-500 transform group-hover:rotate-12">
+        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal"
+          style="transition-delay: 300ms;">
+          <div
+            class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/15 transition-all duration-500 transform group-hover:rotate-12">
             <span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110">groups</span>
           </div>
-          <h3 class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-primary transition-colors font-semibold">Community</h3>
-          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Empowering ancestral artisan families through fair-wage trade.</p>
+          <h3
+            class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-primary transition-colors font-semibold">
+            Community</h3>
+          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Empowering ancestral artisan families
+            through fair-wage trade.</p>
         </div>
         <!-- Pillar 4 -->
-        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal" style="transition-delay: 400ms;">
-          <div class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-tertiary/15 transition-all duration-500 transform group-hover:rotate-12">
-            <span class="material-symbols-outlined text-4xl text-tertiary group-hover:scale-110">workspace_premium</span>
+        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal"
+          style="transition-delay: 400ms;">
+          <div
+            class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-tertiary/15 transition-all duration-500 transform group-hover:rotate-12">
+            <span
+              class="material-symbols-outlined text-4xl text-tertiary group-hover:scale-110">workspace_premium</span>
           </div>
-          <h3 class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-tertiary transition-colors font-semibold">Quality</h3>
-          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Rigorous 3-tier inspection exceeding global export norms.</p>
+          <h3
+            class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-tertiary transition-colors font-semibold">
+            Quality</h3>
+          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Rigorous 3-tier inspection exceeding
+            global export norms.</p>
         </div>
         <!-- Pillar 5 -->
-        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal" style="transition-delay: 500ms;">
-          <div class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-deep-charcoal/15 transition-all duration-500 transform group-hover:rotate-12">
-            <span class="material-symbols-outlined text-4xl text-deep-charcoal group-hover:scale-110">local_shipping</span>
+        <div class="p-8 bg-surface-bright border border-cream rounded-2xl card-hover-lift text-center group reveal"
+          style="transition-delay: 500ms;">
+          <div
+            class="w-16 h-16 bg-ivory rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-deep-charcoal/15 transition-all duration-500 transform group-hover:rotate-12">
+            <span
+              class="material-symbols-outlined text-4xl text-deep-charcoal group-hover:scale-110">local_shipping</span>
           </div>
-          <h3 class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-deep-charcoal transition-colors font-semibold">Logistics</h3>
-          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Seamless custom brokerage and door delivery in 30+ nations.</p>
+          <h3
+            class="font-headline-sm text-[20px] mb-3 text-deep-charcoal group-hover:text-deep-charcoal transition-colors font-semibold">
+            Logistics</h3>
+          <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">Seamless custom brokerage and door
+            delivery in 30+ nations.</p>
         </div>
       </div>
     </div>
@@ -433,13 +590,15 @@
   <!-- PRODUCT VERTICALS -->
   <section class="py-section-padding-desktop bg-ivory ivory-texture relative" id="products">
     <div class="max-w-container-max mx-auto px-8">
-      
+
       <!-- General Products Intro -->
       <div class="text-center mb-16 reveal">
-        <span class="font-label-lg text-label-lg text-primary uppercase tracking-widest block mb-4">Export Catalog</span>
+        <span class="font-label-lg text-label-lg text-primary uppercase tracking-widest block mb-4">Export
+          Catalog</span>
         <h2 class="font-headline-lg text-headline-lg text-deep-charcoal">Global Product Verticals</h2>
         <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mt-4 leading-relaxed">
-          Discover our high-integrity exports crafted and cultivated across certified heritage clusters and sustainable agriculture networks of Southern India.
+          Discover our high-integrity exports crafted and cultivated across certified heritage clusters and sustainable
+          agriculture networks of Southern India.
         </p>
       </div>
 
@@ -448,79 +607,120 @@
         <div class="border-l-4 border-heritage-gold pl-4 mb-8 reveal flex items-center justify-between">
           <div>
             <span class="text-xs text-primary font-bold tracking-widest uppercase block mb-1">Category 01</span>
-            <h3 class="font-headline-md text-deep-charcoal text-2xl md:text-3xl font-bold">Heritage Handicrafts &amp; Fine Arts</h3>
+            <h3 class="font-headline-md text-deep-charcoal text-2xl md:text-3xl font-bold">Heritage Handicrafts &amp;
+              Fine Arts</h3>
           </div>
-          <span class="hidden sm:inline-block bg-heritage-gold/10 text-primary border border-heritage-gold/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+          <span
+            class="hidden sm:inline-block bg-heritage-gold/10 text-primary border border-heritage-gold/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
             GI Certified Cluster
           </span>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="content-handicrafts">
           <!-- Item 1: Channapatna Lacquerware -->
-          <div class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full">
+          <div
+            class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full">
             <div class="relative h-64 overflow-hidden shrink-0">
-              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Channapatna lacquerware colorful eco-friendly toys on displays" src="images/Channapatna Lacquerware.jpeg"/>
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Channapatna lacquerware colorful eco-friendly toys on displays"
+                src="images/Channapatna Lacquerware.jpeg" />
               <div class="absolute top-4 left-4 flex gap-2">
-                <span class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">GI Certified</span>
-                <span class="bg-primary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Eco-Safe</span>
+                <span
+                  class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">GI
+                  Certified</span>
+                <span
+                  class="bg-primary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Eco-Safe</span>
               </div>
             </div>
             <div class="p-8 flex flex-col flex-grow">
-              <h4 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 shrink-0">Channapatna Lacquerware</h4>
-              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">EN71 compliant educational toys crafted with organic dyes and ivory wood on traditional lathes.</p>
+              <h4 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 shrink-0">Channapatna Lacquerware
+              </h4>
+              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">EN71 compliant educational toys crafted
+                with organic dyes and ivory wood on traditional lathes.</p>
               <div class="flex items-center justify-end pt-6 border-t border-cream mt-auto shrink-0">
-                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300" href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
+                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300"
+                  href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
               </div>
             </div>
           </div>
-          
+
           <!-- Item 2: Channapatna Non-Toxic Toys (Moved up and grouped) -->
-          <div class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full" style="transition-delay: 150ms;">
+          <div
+            class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full"
+            style="transition-delay: 150ms;">
             <div class="relative h-64 overflow-hidden shrink-0">
-              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Channapatna non-toxic handmade eco wooden toys" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Channapatna-toys.jpg/640px-Channapatna-toys.jpg" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuD01b_j4ku2_f_tG2NUsFr5wNmH-rCbZztG_gMo5u3ovpGtyYrzBPgnBeHYxvg0l52qny8j2r95DSiNlX5EBlbTXEmo629kVuqCuBIHcQLb_mT1VADZFd0dZ2SCjEawuadN9I_iRZDuUt5NjpjtfAeWrcEFJKPEzSjGLp397HIUW2U5kqbzxpsZRbAeRyAbdvKxf6eZLBUbyMh3bnehAS6LHaFCdlRzbAeSD9x5PL9egIZmpxE7PidzIVmFvLj40ICi45nEYjA9boRH';"/>
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Channapatna non-toxic handmade eco wooden toys"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Channapatna-toys.jpg/640px-Channapatna-toys.jpg"
+                onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuD01b_j4ku2_f_tG2NUsFr5wNmH-rCbZztG_gMo5u3ovpGtyYrzBPgnBeHYxvg0l52qny8j2r95DSiNlX5EBlbTXEmo629kVuqCuBIHcQLb_mT1VADZFd0dZ2SCjEawuadN9I_iRZDuUt5NjpjtfAeWrcEFJKPEzSjGLp397HIUW2U5kqbzxpsZRbAeRyAbdvKxf6eZLBUbyMh3bnehAS6LHaFCdlRzbAeSD9x5PL9egIZmpxE7PidzIVmFvLj40ICi45nEYjA9boRH';" />
               <div class="absolute top-4 left-4">
-                <span class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Non-Toxic</span>
+                <span
+                  class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Non-Toxic</span>
               </div>
             </div>
             <div class="p-8 flex flex-col flex-grow">
-              <h4 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 shrink-0">Channapatna Non-Toxic Toys</h4>
-              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">100% lead-free, safe playthings handcrafted with organic vegetable dyes on Hale wood. Perfect for early childhood sensory play.</p>
+              <h4 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 shrink-0">Channapatna Non-Toxic Toys
+              </h4>
+              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">100% lead-free, safe playthings handcrafted
+                with organic vegetable dyes on Hale wood. Perfect for early childhood sensory play.</p>
               <div class="flex items-center justify-end pt-6 border-t border-cream mt-auto shrink-0">
-                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300" href="https://drive.google.com/file/d/1iMRUCRcvnH_uRDpQK8MY0-ZCKxPKDSw6/view" target="_blank" rel="noopener noreferrer">Catalogue <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
+                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300"
+                  href="https://drive.google.com/file/d/1iMRUCRcvnH_uRDpQK8MY0-ZCKxPKDSw6/view" target="_blank"
+                  rel="noopener noreferrer">Catalogue <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
               </div>
             </div>
           </div>
 
           <!-- Item 3: Bidriware Metal Inlay -->
-          <div class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full" style="transition-delay: 300ms;">
+          <div
+            class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full"
+            style="transition-delay: 300ms;">
             <div class="relative h-64 overflow-hidden shrink-0">
-              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Bidriware masterfully detailed metal inlay art piece with floral patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhmMH2Kx79l1YKi2H3LEQdvkGa90tcacHUKvt4v4JClaRrTAWyOJGdzOuaUrNYw5yOIZJdgGa_bDzkhgZS-EWWVCwOyMQNjAcJbTmlgB0LEVLVfUlc5J3iweiYjmjq3LXIu2pRVn7kNDpcVi5CSAPDCEjHj8wHLggdyVaxItR_xVZv3QvlhjpENKaOPlHOuDtBld8Y40Y0CB926MrdkLd-GhKooy7EX5fNyOlNxC7aKhQqd7bJJV_aiBi9_m_ZI29L9KFoWe349B-6"/>
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Bidriware masterfully detailed metal inlay art piece with floral patterns"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhmMH2Kx79l1YKi2H3LEQdvkGa90tcacHUKvt4v4JClaRrTAWyOJGdzOuaUrNYw5yOIZJdgGa_bDzkhgZS-EWWVCwOyMQNjAcJbTmlgB0LEVLVfUlc5J3iweiYjmjq3LXIu2pRVn7kNDpcVi5CSAPDCEjHj8wHLggdyVaxItR_xVZv3QvlhjpENKaOPlHOuDtBld8Y40Y0CB926MrdkLd-GhKooy7EX5fNyOlNxC7aKhQqd7bJJV_aiBi9_m_ZI29L9KFoWe349B-6" />
               <div class="absolute top-4 left-4">
-                <span class="bg-heritage-gold text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Premium Selection</span>
+                <span
+                  class="bg-heritage-gold text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Premium
+                  Selection</span>
               </div>
             </div>
             <div class="p-8 flex flex-col flex-grow">
               <h4 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 shrink-0">Bidriware Metal Inlay</h4>
-              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">Zinc-copper alloy masterpiece with 99.9% pure silver inlay work, dating back to the 14th century.</p>
+              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">Zinc-copper alloy masterpiece with 99.9%
+                pure silver inlay work, dating back to the 14th century.</p>
               <div class="flex items-center justify-end pt-6 border-t border-cream mt-auto shrink-0">
-                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300" href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
+                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300"
+                  href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
               </div>
             </div>
           </div>
-          
+
           <!-- Item 4: Kinnal Fine Arts -->
-          <div class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full" style="transition-delay: 450ms;">
+          <div
+            class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full"
+            style="transition-delay: 450ms;">
             <div class="relative h-64 overflow-hidden shrink-0">
-              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Kinnal traditional folk art painted wooden statues and toys" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS200hUDRa8DJY_4Z3S62rtcjuwDp4SUQeGqTTit3HeQEt9FdcZ8ThICbkbxLqeH7yEY3tC2j7b0GGKqpC_nvJkwUHF9ijtE9SNRZg-35MSSnkJsP6uiTYUcfVQge9aTDZuBpyIzQvjxNSOnfg_9hbX8rGxdV8eyFcp7lfEXVTYrI-ysnPU4KHEpvImTtf2LHUXwZZpnv5uUkUEv-GKLoWEZzTKniE6nrhtRc7lhUVq4kbVHnvugGvDMQijtv2TBS8VD5n0VACjwmz"/>
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Kinnal traditional folk art painted wooden statues and toys"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS200hUDRa8DJY_4Z3S62rtcjuwDp4SUQeGqTTit3HeQEt9FdcZ8ThICbkbxLqeH7yEY3tC2j7b0GGKqpC_nvJkwUHF9ijtE9SNRZg-35MSSnkJsP6uiTYUcfVQge9aTDZuBpyIzQvjxNSOnfg_9hbX8rGxdV8eyFcp7lfEXVTYrI-ysnPU4KHEpvImTtf2LHUXwZZpnv5uUkUEv-GKLoWEZzTKniE6nrhtRc7lhUVq4kbVHnvugGvDMQijtv2TBS8VD5n0VACjwmz" />
               <div class="absolute top-4 left-4">
-                <span class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Heritage Art</span>
+                <span
+                  class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Heritage
+                  Art</span>
               </div>
             </div>
             <div class="p-8 flex flex-col flex-grow">
               <h4 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 shrink-0">Kinnal Fine Arts</h4>
-              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">Traditional Polki wood figurines with tamarind paste adhesive, hand-painted with mineral pigments.</p>
+              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">Traditional Polki wood figurines with
+                tamarind paste adhesive, hand-painted with mineral pigments.</p>
               <div class="flex items-center justify-end pt-6 border-t border-cream mt-auto shrink-0">
-                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300" href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
+                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300"
+                  href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
               </div>
             </div>
           </div>
@@ -532,7 +732,8 @@
         <div class="absolute inset-0 flex items-center" aria-hidden="true">
           <div class="w-full border-t border-cream"></div>
         </div>
-        <div class="relative bg-ivory px-4 text-heritage-gold rotate-45 transform hover:rotate-180 transition-transform duration-700 cursor-pointer">
+        <div
+          class="relative bg-ivory px-4 text-heritage-gold rotate-45 transform hover:rotate-180 transition-transform duration-700 cursor-pointer">
           <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">widgets</span>
         </div>
       </div>
@@ -542,59 +743,84 @@
         <div class="border-l-4 border-secondary pl-4 mb-8 reveal flex items-center justify-between">
           <div>
             <span class="text-xs text-secondary font-bold tracking-widest uppercase block mb-1">Category 02</span>
-            <h3 class="font-headline-md text-deep-charcoal text-2xl md:text-3xl font-bold">Sustainable Agriculture &amp; Organic Superfoods</h3>
+            <h3 class="font-headline-md text-deep-charcoal text-2xl md:text-3xl font-bold">Sustainable Agriculture &amp;
+              Organic Superfoods</h3>
           </div>
-          <span class="hidden sm:inline-block bg-secondary/10 text-secondary border border-secondary/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+          <span
+            class="hidden sm:inline-block bg-secondary/10 text-secondary border border-secondary/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
             FSSAI &amp; APEDA Certified
           </span>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8" id="content-agriculture">
           <!-- Agri Item 1 -->
-          <div class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full">
+          <div
+            class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full">
             <div class="relative h-64 overflow-hidden shrink-0">
-              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Premium organic Finger Millet Ragi grains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqKTed63b5zXOOhz5HQoXZXUBPzV4JHMTwualekMLXXPRb8z4bymT-TL7qlT8DAv8FccKFGy1ysRf_dBrdHqt9ZRnkq17k1_RwL8pftJNjis0up_VsnnF_E4CV0JAIq5d-77SA7wRRtEsFWU1lkNJRFFDQY2Qs5kDAcDDtZqtAdjUMlNybrTtpnMsxT3Be1FI_nkYI4XlxJw25d9XYrYfWoxFWb_izhfX0KU5JTzZJUYbK2RX0x8Nq-H27LAcbkb9fZPITCb935vLY"/>
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Premium organic Finger Millet Ragi grains"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqKTed63b5zXOOhz5HQoXZXUBPzV4JHMTwualekMLXXPRb8z4bymT-TL7qlT8DAv8FccKFGy1ysRf_dBrdHqt9ZRnkq17k1_RwL8pftJNjis0up_VsnnF_E4CV0JAIq5d-77SA7wRRtEsFWU1lkNJRFFDQY2Qs5kDAcDDtZqtAdjUMlNybrTtpnMsxT3Be1FI_nkYI4XlxJw25d9XYrYfWoxFWb_izhfX0KU5JTzZJUYbK2RX0x8Nq-H27LAcbkb9fZPITCb935vLY" />
               <div class="absolute top-4 left-4">
-                <span class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Superfood</span>
+                <span
+                  class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Superfood</span>
               </div>
             </div>
             <div class="p-8 flex flex-col flex-grow">
               <h4 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 shrink-0">Finger Millet (Ragi)</h4>
-              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">High-calcium organic superfood grains from Karnataka. Purity 99%+ with 24-month shelf life.</p>
+              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">High-calcium organic superfood grains from
+                Karnataka. Purity 99%+ with 24-month shelf life.</p>
               <div class="flex items-center justify-end pt-6 border-t border-cream mt-auto shrink-0">
-                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300" href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
+                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300"
+                  href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
               </div>
             </div>
           </div>
           <!-- Agri Item 2 -->
-          <div class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full" style="transition-delay: 150ms;">
+          <div
+            class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full"
+            style="transition-delay: 150ms;">
             <div class="relative h-64 overflow-hidden shrink-0">
-              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Compressed organic coco peat blocks for agriculture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUEBKXXTvOnLnhEglotes7DKFHI8FBDfq-GF33rnu4cokoTWSpV6swf5_LrAKzXTEB-jggsQcf0ouFBRImlSgLuJwWmIej9ZR_vhtWpM42sjPhvh9ia4NIhh1gGkb4vwfLQq5zB6SVZ0ueV8bZ-lWtNkaFNngmlqrQKCbfW_MsBswjFk976eeeOhX88Cdub-8VcetjanYvFwmRTTcQBSbBlTF-BJYYQ2rvIM_IL9nWrF1C-tXt0c5QQSx8iWZ3OKWmkzJSMJxbJRC-"/>
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Compressed organic coco peat blocks for agriculture"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUEBKXXTvOnLnhEglotes7DKFHI8FBDfq-GF33rnu4cokoTWSpV6swf5_LrAKzXTEB-jggsQcf0ouFBRImlSgLuJwWmIej9ZR_vhtWpM42sjPhvh9ia4NIhh1gGkb4vwfLQq5zB6SVZ0ueV8bZ-lWtNkaFNngmlqrQKCbfW_MsBswjFk976eeeOhX88Cdub-8VcetjanYvFwmRTTcQBSbBlTF-BJYYQ2rvIM_IL9nWrF1C-tXt0c5QQSx8iWZ3OKWmkzJSMJxbJRC-" />
               <div class="absolute top-4 left-4">
-                <span class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Sustainable</span>
+                <span
+                  class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Sustainable</span>
               </div>
             </div>
             <div class="p-8 flex flex-col flex-grow">
               <h4 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 shrink-0">Coco Peat &amp; Coir</h4>
-              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">Low EC buffered coco peat blocks and geothermal coir textiles for global horticulture markets.</p>
+              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">Low EC buffered coco peat blocks and
+                geothermal coir textiles for global horticulture markets.</p>
               <div class="flex items-center justify-end pt-6 border-t border-cream mt-auto shrink-0">
-                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300" href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
+                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300"
+                  href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
               </div>
             </div>
           </div>
           <!-- Agri Item 3 -->
-          <div class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full" style="transition-delay: 300ms;">
+          <div
+            class="bg-paper-white rounded-2xl overflow-hidden border border-cream shadow-sm card-hover-lift group reveal flex flex-col h-full"
+            style="transition-delay: 300ms;">
             <div class="relative h-64 overflow-hidden shrink-0">
-              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Clean and premium organic pearl millet Bajra grains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfyDUvIU6lLujbN9n1Zee_guT-z1pTui9RcOMpRbQyhdYLX4PLnMeQMEtIEddWTn9w71va1vOZmNhhPCP8sxhO9_oF7Z4rwRVpx8HDzEBiV0o5uHfjrZrHogXjfrqmEUbNCmr6RbjngwItM63RSJOOH8jh6M99mLaS_NhKlY-daSuu0I7jqAAjnvNWKFADYV2-6iAmivSX6UtDgNK8QxGjIt_b1xE4Po4sQz-HGmcoYUQ8CV-R7Cb26BsWHuhuL_4pR6W4VsldqTKN"/>
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Clean and premium organic pearl millet Bajra grains"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfyDUvIU6lLujbN9n1Zee_guT-z1pTui9RcOMpRbQyhdYLX4PLnMeQMEtIEddWTn9w71va1vOZmNhhPCP8sxhO9_oF7Z4rwRVpx8HDzEBiV0o5uHfjrZrHogXjfrqmEUbNCmr6RbjngwItM63RSJOOH8jh6M99mLaS_NhKlY-daSuu0I7jqAAjnvNWKFADYV2-6iAmivSX6UtDgNK8QxGjIt_b1xE4Po4sQz-HGmcoYUQ8CV-R7Cb26BsWHuhuL_4pR6W4VsldqTKN" />
               <div class="absolute top-4 left-4">
-                <span class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Gluten-Free</span>
+                <span
+                  class="bg-secondary/90 backdrop-blur-sm text-paper-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Gluten-Free</span>
               </div>
             </div>
             <div class="p-8 flex flex-col flex-grow">
               <h4 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 shrink-0">Pearl Millet (Bajra)</h4>
-              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">Nutritious ancient grains sourced from the finest farms. Export-cleaned and custom-packed.</p>
+              <p class="font-body-md text-on-surface-variant mb-6 flex-grow">Nutritious ancient grains sourced from the
+                finest farms. Export-cleaned and custom-packed.</p>
               <div class="flex items-center justify-end pt-6 border-t border-cream mt-auto shrink-0">
-                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300" href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
+                <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300"
+                  href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
               </div>
             </div>
           </div>
@@ -609,60 +835,88 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none"></div>
     <div class="max-w-container-max mx-auto px-8 relative z-10">
       <div class="text-center mb-20 reveal">
-        <span class="font-label-lg text-label-lg text-heritage-gold uppercase tracking-widest block mb-4">The Supply Chain</span>
+        <span class="font-label-lg text-label-lg text-heritage-gold uppercase tracking-widest block mb-4">The Supply
+          Chain</span>
         <h2 class="font-headline-lg text-headline-lg">Village to Doorstep Journey</h2>
       </div>
       <div class="relative">
-        <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-heritage-gold via-heritage-gold/30 to-transparent -translate-x-1/2"></div>
+        <div
+          class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-heritage-gold via-heritage-gold/30 to-transparent -translate-x-1/2">
+        </div>
         <div class="space-y-12">
           <!-- Step 1 -->
           <div class="flex flex-col lg:flex-row items-center gap-8 group reveal">
             <div class="lg:w-1/2 lg:text-right">
               <span class="text-xs text-heritage-gold font-bold tracking-widest uppercase block mb-1">Step 01</span>
-              <h3 class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-right transition-transform">Direct Sourcing</h3>
-              <p class="font-body-md opacity-75">Straight from geographical indication certified artisan clusters and verified organic farms across India.</p>
+              <h3
+                class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-right transition-transform">
+                Direct Sourcing</h3>
+              <p class="font-body-md opacity-75">Straight from geographical indication certified artisan clusters and
+                verified organic farms across India.</p>
             </div>
-            <div class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">01</div>
+            <div
+              class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">
+              01</div>
             <div class="lg:w-1/2"></div>
           </div>
           <!-- Step 2 -->
           <div class="flex flex-col lg:flex-row-reverse items-center gap-8 group reveal">
             <div class="lg:w-1/2">
               <span class="text-xs text-heritage-gold font-bold tracking-widest uppercase block mb-1">Step 02</span>
-              <h3 class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-left transition-transform">3-Tier Quality Inspection</h3>
-              <p class="font-body-md opacity-75">Raw Material inspection, In-Line Audit during crafting, and rigorous final Pre-Shipment Inspection against destination country limits.</p>
+              <h3
+                class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-left transition-transform">
+                3-Tier Quality Inspection</h3>
+              <p class="font-body-md opacity-75">Raw Material inspection, In-Line Audit during crafting, and rigorous
+                final Pre-Shipment Inspection against destination country limits.</p>
             </div>
-            <div class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">02</div>
+            <div
+              class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">
+              02</div>
             <div class="lg:w-1/2"></div>
           </div>
           <!-- Step 3 -->
           <div class="flex flex-col lg:flex-row items-center gap-8 group reveal">
             <div class="lg:w-1/2 lg:text-right">
               <span class="text-xs text-heritage-gold font-bold tracking-widest uppercase block mb-1">Step 03</span>
-              <h3 class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-right transition-transform">Premium Export Packaging</h3>
-              <p class="font-body-md opacity-75">Heavy-duty 7-ply corrugated outer cartons, vacuum seal moisture protection, and sustainable honeycomb wrap engineered for high-sea transit.</p>
+              <h3
+                class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-right transition-transform">
+                Premium Export Packaging</h3>
+              <p class="font-body-md opacity-75">Heavy-duty 7-ply corrugated outer cartons, vacuum seal moisture
+                protection, and sustainable honeycomb wrap engineered for high-sea transit.</p>
             </div>
-            <div class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">03</div>
+            <div
+              class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">
+              03</div>
             <div class="lg:w-1/2"></div>
           </div>
           <!-- Step 4 -->
           <div class="flex flex-col lg:flex-row-reverse items-center gap-8 group reveal">
             <div class="lg:w-1/2">
               <span class="text-xs text-heritage-gold font-bold tracking-widest uppercase block mb-1">Step 04</span>
-              <h3 class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-left transition-transform">Global Customs Documentation</h3>
-              <p class="font-body-md opacity-75">Sovereign GI Certifications, Certificate of Origin (Form A), Phytosanitary inspections, and complete digital billing records for trouble-free clearance.</p>
+              <h3
+                class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-left transition-transform">
+                Global Customs Documentation</h3>
+              <p class="font-body-md opacity-75">Sovereign GI Certifications, Certificate of Origin (Form A),
+                Phytosanitary inspections, and complete digital billing records for trouble-free clearance.</p>
             </div>
-            <div class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">04</div>
+            <div
+              class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">
+              04</div>
             <div class="lg:w-1/2"></div>
           </div>
           <!-- Step 5 -->
           <div class="flex flex-col lg:flex-row items-center gap-8 group reveal">
             <div class="lg:w-1/2 lg:text-right">
               <span class="text-xs text-heritage-gold font-bold tracking-widest uppercase block mb-1">Step 05</span>
-              <h3 class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-right transition-transform">Global Port Logistics</h3>
-              <p class="font-body-md opacity-75">Customizable FOB, CFR, CIF shipping routes departing from major gateways including Chennai Port, Mangalore Port, and Bengaluru Cargo complex.</p>
+              <h3
+                class="font-headline-sm text-heritage-gold text-[22px] mb-3 group-hover:scale-105 origin-right transition-transform">
+                Global Port Logistics</h3>
+              <p class="font-body-md opacity-75">Customizable FOB, CFR, CIF shipping routes departing from major
+                gateways including Chennai Port, Mangalore Port, and Bengaluru Cargo complex.</p>
             </div>
-            <div class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">05</div>
+            <div
+              class="w-12 h-12 rounded-full bg-heritage-gold text-deep-charcoal font-bold flex items-center justify-center relative z-10 shrink-0 shadow-lg shadow-heritage-gold/30 group-hover:scale-110 transition-transform duration-300">
+              05</div>
             <div class="lg:w-1/2"></div>
           </div>
         </div>
@@ -674,7 +928,8 @@
   <section class="py-section-padding-desktop bg-paper-white relative" id="heritage">
     <div class="max-w-container-max mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
       <div class="order-2 lg:order-1 reveal">
-        <div class="p-12 bg-deep-charcoal rounded-3xl relative overflow-hidden shadow-2xl border border-heritage-gold/20">
+        <div
+          class="p-12 bg-deep-charcoal rounded-3xl relative overflow-hidden shadow-2xl border border-heritage-gold/20">
           <div class="absolute inset-0 bg-heritage-gold opacity-5 pointer-events-none"></div>
           <div class="relative z-10 text-center space-y-6">
             <div class="inline-block p-4 rounded-full bg-paper-white/5 border border-paper-white/10 mb-2 rotate-slow">
@@ -685,40 +940,53 @@
             <div class="flex justify-center gap-4 py-6 border-y border-paper-white/10">
               <div class="text-center px-4">
                 <span class="block text-2xl mb-1">⚔️</span>
-                <span class="block text-[11px] text-paper-white/60 uppercase tracking-widest font-semibold">Shaurya</span>
+                <span
+                  class="block text-[11px] text-paper-white/60 uppercase tracking-widest font-semibold">Shaurya</span>
               </div>
               <div class="text-center px-4">
                 <span class="block text-2xl mb-1">⚖️</span>
-                <span class="block text-[11px] text-paper-white/60 uppercase tracking-widest font-semibold">Dharma</span>
+                <span
+                  class="block text-[11px] text-paper-white/60 uppercase tracking-widest font-semibold">Dharma</span>
               </div>
               <div class="text-center px-4">
                 <span class="block text-2xl mb-1">🎨</span>
-                <span class="block text-[11px] text-paper-white/60 uppercase tracking-widest font-semibold">Kala Prema</span>
+                <span class="block text-[11px] text-paper-white/60 uppercase tracking-widest font-semibold">Kala
+                  Prema</span>
               </div>
             </div>
             <p class="font-body-md text-paper-white/70 leading-relaxed max-w-sm mx-auto">
-              Carrying forward the timeless dynastic ethos of spiritual righteousness, valor, and absolute devotion to classical art to modern international commerce.
+              Carrying forward the timeless dynastic ethos of spiritual righteousness, valor, and absolute devotion to
+              classical art to modern international commerce.
             </p>
           </div>
         </div>
       </div>
       <div class="order-1 lg:order-2 space-y-8 reveal">
-        <span class="font-label-lg text-label-lg text-primary uppercase tracking-widest block">The Roots of Gangawadi</span>
+        <span class="font-label-lg text-label-lg text-primary uppercase tracking-widest block">The Roots of
+          Gangawadi</span>
         <h2 class="font-headline-lg text-headline-lg text-deep-charcoal">Inspired by the Golden Era of Karnataka</h2>
         <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-          The name Gangawadi International is deeply rooted in the historical geography and sovereign heritage of the Western Ganga Dynasty—the foundational kingdom that engineered the stunning artistic monuments and cultural landmarks of Southern Karnataka.
+          The name Gangawadi International is deeply rooted in the historical geography and sovereign heritage of the
+          Western Ganga Dynasty—the foundational kingdom that engineered the stunning artistic monuments and cultural
+          landmarks of Southern Karnataka.
         </p>
-        <blockquote class="italic text-headline-sm text-primary font-headline-md border-l-4 border-heritage-gold pl-6 py-2 leading-relaxed bg-ivory/50 rounded-r-xl">
-          "Our mandate is to translate dynastic Shaurya (valour), Dharma (integrity), and Kala Prema (patronage of craft) into exemplary worldwide supply-chain operations."
+        <blockquote
+          class="italic text-headline-sm text-primary font-headline-md border-l-4 border-heritage-gold pl-6 py-2 leading-relaxed bg-ivory/50 rounded-r-xl">
+          "Our mandate is to translate dynastic Shaurya (valour), Dharma (integrity), and Kala Prema (patronage of
+          craft) into exemplary worldwide supply-chain operations."
         </blockquote>
         <div class="space-y-4">
           <div class="flex items-start gap-4 group">
-            <span class="material-symbols-outlined text-heritage-gold transition-transform group-hover:scale-110">check_circle</span>
-            <p class="text-on-surface-variant"><strong>Ethical Micro-Cluster Sourcing:</strong> Removing middlemen to route export rewards straight to grassroots micro-artisans.</p>
+            <span
+              class="material-symbols-outlined text-heritage-gold transition-transform group-hover:scale-110">check_circle</span>
+            <p class="text-on-surface-variant"><strong>Ethical Micro-Cluster Sourcing:</strong> Removing middlemen to
+              route export rewards straight to grassroots micro-artisans.</p>
           </div>
           <div class="flex items-start gap-4 group">
-            <span class="material-symbols-outlined text-heritage-gold transition-transform group-hover:scale-110">check_circle</span>
-            <p class="text-on-surface-variant"><strong>Enterprise-Grade Standards:</strong> Matching age-old aesthetic genius with modern, scientific quality-assurance systems.</p>
+            <span
+              class="material-symbols-outlined text-heritage-gold transition-transform group-hover:scale-110">check_circle</span>
+            <p class="text-on-surface-variant"><strong>Enterprise-Grade Standards:</strong> Matching age-old aesthetic
+              genius with modern, scientific quality-assurance systems.</p>
           </div>
         </div>
       </div>
@@ -728,33 +996,41 @@
   <!-- CERTIFICATIONS STRIP -->
   <section class="py-16 bg-surface-container-low border-y border-cream/50 overflow-hidden relative">
     <div class="max-w-container-max mx-auto px-8">
-      <div class="flex flex-wrap justify-center items-center gap-y-8 gap-x-12 opacity-70 hover:opacity-100 transition-opacity duration-500">
+      <div
+        class="flex flex-wrap justify-center items-center gap-y-8 gap-x-12 opacity-70 hover:opacity-100 transition-opacity duration-500">
         <div class="flex flex-col items-center transform hover:scale-105 transition-transform">
-          <span class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">GI</span>
+          <span
+            class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">GI</span>
           <span class="font-label-sm text-[10px] uppercase tracking-wider font-bold">Geographical Indication</span>
         </div>
         <div class="flex flex-col items-center transform hover:scale-105 transition-transform">
-          <span class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">ISO</span>
+          <span
+            class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">ISO</span>
           <span class="font-label-sm text-[10px] uppercase tracking-wider font-bold">9001:2015 Registered</span>
         </div>
         <div class="flex flex-col items-center transform hover:scale-105 transition-transform">
-          <span class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">ST</span>
+          <span
+            class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">ST</span>
           <span class="font-label-sm text-[10px] uppercase tracking-wider font-bold">Japan Toy Safety</span>
         </div>
         <div class="flex flex-col items-center transform hover:scale-105 transition-transform">
-          <span class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">FSSAI</span>
+          <span
+            class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">FSSAI</span>
           <span class="font-label-sm text-[10px] uppercase tracking-wider font-bold">Central Food License</span>
         </div>
         <div class="flex flex-col items-center transform hover:scale-105 transition-transform">
-          <span class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">EPCH</span>
+          <span
+            class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">EPCH</span>
           <span class="font-label-sm text-[10px] uppercase tracking-wider font-bold">RCMC Handicrafts</span>
         </div>
         <div class="flex flex-col items-center transform hover:scale-105 transition-transform">
-          <span class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">COIR</span>
+          <span
+            class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">COIR</span>
           <span class="font-label-sm text-[10px] uppercase tracking-wider font-bold">Board Registered</span>
         </div>
         <div class="flex flex-col items-center transform hover:scale-105 transition-transform">
-          <span class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">APEDA</span>
+          <span
+            class="text-3xl font-extrabold text-deep-charcoal border-2 border-deep-charcoal px-4 py-1 mb-2">APEDA</span>
           <span class="font-label-sm text-[10px] uppercase tracking-wider font-bold">Agri Export License</span>
         </div>
       </div>
@@ -765,97 +1041,134 @@
   <section class="py-section-padding-desktop bg-ivory ivory-texture border-b border-cream" id="faq">
     <div class="max-w-container-max mx-auto px-8">
       <div class="text-center mb-16 reveal">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-tertiary-container text-paper-white font-label-sm text-label-sm uppercase tracking-widest mb-4">Common Questions</span>
+        <span
+          class="inline-block px-4 py-1.5 rounded-full bg-tertiary-container text-paper-white font-label-sm text-label-sm uppercase tracking-widest mb-4">Common
+          Questions</span>
         <h2 class="font-headline-lg text-headline-lg text-deep-charcoal mb-4">Frequently Asked Questions</h2>
-        <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Instant transparent answers regarding global fulfillment, certifications, and trade guidelines.</p>
+        <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Instant transparent answers regarding global
+          fulfillment, certifications, and trade guidelines.</p>
       </div>
-      
+
       <div class="grid md:grid-cols-2 gap-6 items-start">
         <!-- FAQ 1 -->
-        <div class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal">
+        <div
+          class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal">
           <div class="flex justify-between items-center gap-4">
-            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">What is the Minimum Order Quantity (MOQ)?</h3>
-            <span class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
+            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">What is the Minimum Order Quantity
+              (MOQ)?</h3>
+            <span
+              class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
           </div>
           <div class="grid faq-collapse">
             <div class="overflow-hidden">
               <p class="pt-4 font-body-md text-on-surface-variant text-sm leading-relaxed">
-                MOQs differ based on categories. For Handicrafts (Channapatna toys, Bidriware, Kinnal artworks), we offer flexible small-batch crates for boutique dealers. For agricultural commodities like Coir textiles or Millets, we typically default to 1 Full Container Load (FCL).
+                MOQs differ based on categories. For Handicrafts (Channapatna toys, Bidriware, Kinnal artworks), we
+                offer flexible small-batch crates for boutique dealers. For agricultural commodities like Coir textiles
+                or Millets, we typically default to 1 Full Container Load (FCL).
               </p>
             </div>
           </div>
         </div>
 
         <!-- FAQ 2 -->
-        <div class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal" style="transition-delay: 100ms;">
+        <div
+          class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal"
+          style="transition-delay: 100ms;">
           <div class="flex justify-between items-center gap-4">
-            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">Can you supply verified organic millets?</h3>
-            <span class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
+            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">Can you supply verified organic
+              millets?</h3>
+            <span
+              class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
           </div>
           <div class="grid faq-collapse">
             <div class="overflow-hidden">
               <p class="pt-4 font-body-md text-on-surface-variant text-sm leading-relaxed">
-                Yes, our superfoods and Finger Millets are sourced from certified organic dryland agricultural clusters in Karnataka. We provide complete APEDA-aligned tracking documents and batch certificate numbers representing geographical regions.
+                Yes, our superfoods and Finger Millets are sourced from certified organic dryland agricultural clusters
+                in Karnataka. We provide complete APEDA-aligned tracking documents and batch certificate numbers
+                representing geographical regions.
               </p>
             </div>
           </div>
         </div>
 
         <!-- FAQ 3 -->
-        <div class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal" style="transition-delay: 150ms;">
+        <div
+          class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal"
+          style="transition-delay: 150ms;">
           <div class="flex justify-between items-center gap-4">
-            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">Do you offer Private Label and OEM capabilities?</h3>
-            <span class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
+            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">Do you offer Private Label and OEM
+              capabilities?</h3>
+            <span
+              class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
           </div>
           <div class="grid faq-collapse">
             <div class="overflow-hidden">
               <p class="pt-4 font-body-md text-on-surface-variant text-sm leading-relaxed">
-                Absolutely. We specialize in bespoke private labeling. We handle custom-molded wooden retail-ready toy collections and design high-barrier consumer pouches complete with your exact branding guidelines for international retail launches.
+                Absolutely. We specialize in bespoke private labeling. We handle custom-molded wooden retail-ready toy
+                collections and design high-barrier consumer pouches complete with your exact branding guidelines for
+                international retail launches.
               </p>
             </div>
           </div>
         </div>
 
         <!-- FAQ 4 -->
-        <div class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal" style="transition-delay: 200ms;">
+        <div
+          class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal"
+          style="transition-delay: 200ms;">
           <div class="flex justify-between items-center gap-4">
-            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">What standard export documentation do you provide?</h3>
-            <span class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
+            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">What standard export documentation
+              do you provide?</h3>
+            <span
+              class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
           </div>
           <div class="grid faq-collapse">
             <div class="overflow-hidden">
               <p class="pt-4 font-body-md text-on-surface-variant text-sm leading-relaxed">
-                We supply a comprehensive export dossier: Certified Commercial Invoice, detailed Weight & Packing List, Bill of Lading, Registered Certificate of Origin, State Phytosanitary certificates, and specific Cluster GI authentication.
+                We supply a comprehensive export dossier: Certified Commercial Invoice, detailed Weight & Packing List,
+                Bill of Lading, Registered Certificate of Origin, State Phytosanitary certificates, and specific Cluster
+                GI authentication.
               </p>
             </div>
           </div>
         </div>
 
         <!-- FAQ 5 -->
-        <div class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal" style="transition-delay: 250ms;">
+        <div
+          class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal"
+          style="transition-delay: 250ms;">
           <div class="flex justify-between items-center gap-4">
-            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">What are typical factory lead times?</h3>
-            <span class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
+            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">What are typical factory lead
+              times?</h3>
+            <span
+              class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
           </div>
           <div class="grid faq-collapse">
             <div class="overflow-hidden">
               <p class="pt-4 font-body-md text-on-surface-variant text-sm leading-relaxed">
-                Handcrafted lines require approximately 4 to 6 weeks, depending strictly on the physical carving and seasoning limits. Agricultural superfoods, on the other hand, can be consolidated, vacuum-packaged, and containerized in 15-20 days.
+                Handcrafted lines require approximately 4 to 6 weeks, depending strictly on the physical carving and
+                seasoning limits. Agricultural superfoods, on the other hand, can be consolidated, vacuum-packaged, and
+                containerized in 15-20 days.
               </p>
             </div>
           </div>
         </div>
 
         <!-- FAQ 6 -->
-        <div class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal" style="transition-delay: 300ms;">
+        <div
+          class="faq-item p-6 md:p-8 bg-paper-white border border-cream rounded-2xl shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 reveal"
+          style="transition-delay: 300ms;">
           <div class="flex justify-between items-center gap-4">
-            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">What are the standard payment protocols?</h3>
-            <span class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
+            <h3 class="font-headline-sm text-[19px] text-deep-charcoal font-semibold">What are the standard payment
+              protocols?</h3>
+            <span
+              class="material-symbols-outlined text-heritage-gold transition-transform duration-300 faq-icon">expand_more</span>
           </div>
           <div class="grid faq-collapse">
             <div class="overflow-hidden">
               <p class="pt-4 font-body-md text-on-surface-variant text-sm leading-relaxed">
-                We accommodate 100% Irrevocable Letter of Credit (L/C) at sight from top-tier institutional banks, or a standard 30% advance telegraphic transfer (T/T), with the remainder settled upon dispatch of documents.
+                We accommodate 100% Irrevocable Letter of Credit (L/C) at sight from top-tier institutional banks, or a
+                standard 30% advance telegraphic transfer (T/T), with the remainder settled upon dispatch of documents.
               </p>
             </div>
           </div>
@@ -869,36 +1182,47 @@
     <div class="max-w-container-max mx-auto px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-start">
         <div class="space-y-8 reveal">
-          <span class="font-label-lg text-label-lg text-primary uppercase tracking-widest block">International Sourcing</span>
+          <span class="font-label-lg text-label-lg text-primary uppercase tracking-widest block">International
+            Sourcing</span>
           <h2 class="font-headline-lg text-headline-lg text-deep-charcoal">Ready to Partner for Global Excellence?</h2>
           <div class="space-y-6 pt-4">
             <!-- Mail -->
             <div class="flex items-center gap-6 group">
-              <div class="w-14 h-14 bg-ivory rounded-full flex items-center justify-center text-primary shadow-sm group-hover:bg-primary/10 transition-all duration-300 transform group-hover:scale-110">
+              <div
+                class="w-14 h-14 bg-ivory rounded-full flex items-center justify-center text-primary shadow-sm group-hover:bg-primary/10 transition-all duration-300 transform group-hover:scale-110">
                 <span class="material-symbols-outlined text-2xl">mail</span>
               </div>
               <div>
-                <p class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">General Enquiries</p>
-                <p class="text-xl font-headline-md text-deep-charcoal font-semibold hover:text-primary transition-colors"><a href="mailto:exports@gangawadi.com">exports@gangawadi.com</a></p>
+                <p class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">General
+                  Enquiries</p>
+                <p
+                  class="text-xl font-headline-md text-deep-charcoal font-semibold hover:text-primary transition-colors">
+                  <a href="mailto:exports@gangawadi.com">exports@gangawadi.com</a></p>
               </div>
             </div>
             <!-- Phone -->
             <div class="flex items-center gap-6 group">
-              <div class="w-14 h-14 bg-ivory rounded-full flex items-center justify-center text-primary shadow-sm group-hover:bg-primary/10 transition-all duration-300 transform group-hover:scale-110">
+              <div
+                class="w-14 h-14 bg-ivory rounded-full flex items-center justify-center text-primary shadow-sm group-hover:bg-primary/10 transition-all duration-300 transform group-hover:scale-110">
                 <span class="material-symbols-outlined text-2xl">call</span>
               </div>
               <div>
-                <p class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Direct Helpline</p>
-                <p class="text-xl font-headline-md text-deep-charcoal font-semibold hover:text-primary transition-colors"><a href="tel:+919066619431">+91 9066619431</a></p>
+                <p class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Direct
+                  Helpline</p>
+                <p
+                  class="text-xl font-headline-md text-deep-charcoal font-semibold hover:text-primary transition-colors">
+                  <a href="tel:+919066619431">+91 9066619431</a></p>
               </div>
             </div>
             <!-- Location -->
             <div class="flex items-start gap-6 group">
-              <div class="w-14 h-14 bg-ivory rounded-full flex items-center justify-center text-primary shadow-sm group-hover:bg-primary/10 transition-all duration-300 transform group-hover:scale-110 shrink-0">
+              <div
+                class="w-14 h-14 bg-ivory rounded-full flex items-center justify-center text-primary shadow-sm group-hover:bg-primary/10 transition-all duration-300 transform group-hover:scale-110 shrink-0">
                 <span class="material-symbols-outlined text-2xl">location_on</span>
               </div>
               <div>
-                <p class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Registered Office</p>
+                <p class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">
+                  Registered Office</p>
                 <p class="text-[17px] font-medium text-deep-charcoal leading-relaxed mt-1">
                   Gangawadi International,<br>
                   #15 Doddahosuru village, <br>
@@ -911,24 +1235,38 @@
         </div>
 
         <!-- Interactive Custom Sourcing Form Container -->
-        <div class="bg-surface-bright p-8 md:p-10 rounded-3xl shadow-xl border border-cream ivory-texture relative reveal" style="transition-delay: 200ms;">
+        <div
+          class="bg-surface-bright p-8 md:p-10 rounded-3xl shadow-xl border border-cream ivory-texture relative reveal"
+          style="transition-delay: 200ms;">
           <h3 class="font-headline-sm text-deep-charcoal mb-6 border-b border-cream pb-4">Secure Sourcing Enquiry</h3>
-          
+
           <!-- Pristine Sourcing Form -->
           <form id="sourcing-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
             <div class="grid md:grid-cols-2 gap-6">
               <div class="space-y-2">
-                <label class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Full Name</label>
-                <input class="w-full bg-paper-white border border-outline-variant/40 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-2 focus:ring-heritage-gold/20 transition-all duration-300 outline-none" name="full_name" placeholder="Name" required type="text"/>
+                <label
+                  class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Full
+                  Name</label>
+                <input
+                  class="w-full bg-paper-white border border-outline-variant/40 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-2 focus:ring-heritage-gold/20 transition-all duration-300 outline-none"
+                  name="full_name" placeholder="Name" required type="text" />
               </div>
               <div class="space-y-2">
-                <label class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Company Name</label>
-                <input class="w-full bg-paper-white border border-outline-variant/40 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-2 focus:ring-heritage-gold/20 transition-all duration-300 outline-none" name="company_name" placeholder="Company Name" required type="text"/>
+                <label
+                  class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Company
+                  Name</label>
+                <input
+                  class="w-full bg-paper-white border border-outline-variant/40 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-2 focus:ring-heritage-gold/20 transition-all duration-300 outline-none"
+                  name="company_name" placeholder="Company Name" required type="text" />
               </div>
             </div>
             <div class="space-y-2">
-              <label class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Interest Category</label>
-              <select name="interest_category" class="w-full bg-paper-white border border-outline-variant/40 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-2 focus:ring-heritage-gold/20 transition-all duration-300 outline-none" required>
+              <label
+                class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Interest
+                Category</label>
+              <select name="interest_category"
+                class="w-full bg-paper-white border border-outline-variant/40 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-2 focus:ring-heritage-gold/20 transition-all duration-300 outline-none"
+                required>
                 <option value="">Select Interest Category</option>
                 <option value="Channapatna Lacquerware">Channapatna Lacquerware</option>
                 <option value="Bidriware Metal Inlay">Bidriware Metal Inlay</option>
@@ -938,37 +1276,278 @@
               </select>
             </div>
             <div class="space-y-2">
-              <label class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Your Message</label>
-              <textarea name="message" class="w-full bg-paper-white border border-outline-variant/40 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-2 focus:ring-heritage-gold/20 transition-all duration-300 outline-none" placeholder="Specific quantity, destination, and certification requirements..." rows="4" required></textarea>
+              <label class="font-label-sm uppercase tracking-widest text-on-surface-variant text-[11px] font-bold">Your
+                Message</label>
+              <textarea name="message"
+                class="w-full bg-paper-white border border-outline-variant/40 rounded-xl px-4 py-3 focus:border-heritage-gold focus:ring-2 focus:ring-heritage-gold/20 transition-all duration-300 outline-none"
+                placeholder="Specific quantity, destination, and certification requirements..." rows="4"
+                required></textarea>
             </div>
-            
+
             <!-- Error feedback hook -->
-            <div id="form-error" class="hidden text-xs text-error font-semibold flex items-center gap-1 bg-error-container/50 p-3 rounded-xl border border-error/20">
+            <div id="form-error"
+              class="hidden text-xs text-error font-semibold flex items-center gap-1 bg-error-container/50 p-3 rounded-xl border border-error/20">
               <span class="material-symbols-outlined text-sm">error</span>
               <span id="form-error-text">An error occurred. Please try again.</span>
             </div>
 
-            <button id="submit-btn" class="shimmer-button w-full py-4 bg-deep-charcoal text-heritage-gold font-label-lg uppercase tracking-[0.2em] rounded-xl hover:bg-black hover:text-white transition-all shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2" type="submit">
+            <button id="submit-btn"
+              class="shimmer-button w-full py-4 bg-deep-charcoal text-heritage-gold font-label-lg uppercase tracking-[0.2em] rounded-xl hover:bg-black hover:text-white transition-all shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+              type="submit">
               <span id="submit-btn-text">Send Formal Enquiry</span>
             </button>
-            <p class="text-center text-[11px] text-on-surface-variant uppercase tracking-widest opacity-60">Corporate sourcing response within 24 hours.</p>
+            <p class="text-center text-[11px] text-on-surface-variant uppercase tracking-widest opacity-60">Corporate
+              sourcing response within 24 hours.</p>
           </form>
 
           <!-- Form Success Feedback Panel -->
-          <div id="form-success" class="absolute inset-0 bg-surface-bright/95 flex flex-col items-center justify-center p-8 text-center rounded-3xl z-10 transition-all duration-500 opacity-0 pointer-events-none">
-            <div class="w-16 h-16 bg-secondary/10 text-secondary border border-secondary/20 rounded-full flex items-center justify-center mb-6">
-              <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          <div id="form-success"
+            class="absolute inset-0 bg-surface-bright/95 flex flex-col items-center justify-center p-8 text-center rounded-3xl z-10 transition-all duration-500 opacity-0 pointer-events-none">
+            <div
+              class="w-16 h-16 bg-secondary/10 text-secondary border border-secondary/20 rounded-full flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-4xl"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span>
             </div>
             <h4 class="font-headline-md text-deep-charcoal text-2xl mb-2">Enquiry Logged Securely</h4>
             <p class="font-body-md text-on-surface-variant text-sm max-w-sm mb-6 leading-relaxed">
-              Thank you for connecting with Gangawadi International. Our trade desk has received your sourcing brief and will contact you within 24 hours.
+              Thank you for connecting with Gangawadi International. Our trade desk has received your sourcing brief and
+              will contact you within 24 hours.
             </p>
-            <button onclick="resetForm()" class="px-6 py-2 bg-deep-charcoal text-heritage-gold rounded-full font-label-sm uppercase tracking-widest text-xs hover:bg-black transition-colors">Submit Another Request</button>
+            <button onclick="resetForm()"
+              class="px-6 py-2 bg-deep-charcoal text-heritage-gold rounded-full font-label-sm uppercase tracking-widest text-xs hover:bg-black transition-colors">Submit
+              Another Request</button>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- SOURCING & QUALITY POLICY MODAL -->
+  <div class="fixed inset-0 z-[100] modal-backdrop" id="quality-modal">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-deep-charcoal/70 backdrop-blur-md" onclick="closeQualityModal()"></div>
+
+    <!-- Modal Panel -->
+    <div class="modal-panel absolute inset-4 md:inset-8 lg:inset-12 xl:inset-16 bg-paper-white rounded-3xl shadow-2xl overflow-y-auto border border-cream/50" id="quality-modal-panel">
+      
+      <!-- Close Button -->
+      <button onclick="closeQualityModal()" class="sticky top-4 right-4 float-right z-20 mr-4 mt-4 w-10 h-10 bg-ivory hover:bg-cream rounded-full flex items-center justify-center text-on-surface-variant hover:text-deep-charcoal transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110 border border-cream/50" aria-label="Close modal">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+
+      <div class="p-8 md:p-12 lg:p-16 pt-6 md:pt-8">
+
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-heritage-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+
+        <!-- Section Header -->
+        <div class="text-center mb-12 lg:mb-16 relative z-10">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-heritage-gold/10 border border-heritage-gold/20 shadow-sm mb-6">
+            <span class="material-symbols-outlined text-heritage-gold text-sm" style="font-variation-settings: 'FILL' 1;">shield</span>
+            <span class="font-label-sm text-label-sm text-heritage-gold uppercase tracking-widest">Our Commitment</span>
+          </div>
+          <h2 class="font-headline-lg text-headline-lg text-deep-charcoal mb-4">Sourcing &amp; Quality Policy</h2>
+          <p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
+            At Gangawadi International Private Limited, we are deeply committed to sustainable sourcing, ethical trade, and preserving India's rich cultural heritage. We ensure that our global clients receive only the finest, authentic products.
+          </p>
+        </div>
+
+        <!-- Three Pillars Grid -->
+        <div class="grid md:grid-cols-3 gap-8 lg:gap-10 relative z-10">
+
+          <!-- Pillar 1: Artisan-Direct Sourcing -->
+          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-heritage-gold via-heritage-gold/60 to-transparent"></div>
+            <div class="w-16 h-16 bg-heritage-gold/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-heritage-gold/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-4xl text-heritage-gold" style="font-variation-settings: 'FILL' 1;">handshake</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 group-hover:text-heritage-gold transition-colors duration-300">Artisan-Direct Sourcing</h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed">
+              We source our world-renowned Channapatna toys, Kinhal art, and Bidriware directly from skilled traditional artisans. This ensures fair compensation for the creators and authentic products for our buyers.
+            </p>
+            <div class="mt-6 pt-6 border-t border-cream/60">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">Fair Trade Guaranteed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Eco-Friendly & Safe Materials -->
+          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/60 to-transparent"></div>
+            <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">eco</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 group-hover:text-secondary transition-colors duration-300">Eco-Friendly &amp; Safe Materials</h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed">
+              Sustainability is at the core of our business. Our wooden crafts and toys are made using sustainably harvested wood and non-toxic, natural vegetable dyes, making them completely safe. Our coir products are 100% natural, biodegradable, and sourced from premium agricultural belts.
+            </p>
+            <div class="mt-6 pt-6 border-t border-cream/60">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">100% Non-Toxic &amp; Biodegradable</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Rigorous Quality Assurance -->
+          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/60 to-transparent"></div>
+            <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 group-hover:text-primary transition-colors duration-300">Rigorous Quality Assurance</h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed">
+              Every product undergoes strict quality inspections. From the structural integrity of our coir products to the fine detailing of Bidriware and the safety standards of our toys, we ensure everything meets international export compliance before shipment.
+            </p>
+            <div class="mt-6 pt-6 border-t border-cream/60">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">International Export Compliant</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Philosophy Banner -->
+        <div class="mt-12 lg:mt-16 p-8 md:p-12 bg-deep-charcoal rounded-3xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-heritage-gold opacity-5 pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+            <div class="w-20 h-20 bg-paper-white/5 border border-paper-white/10 rounded-full flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-5xl text-heritage-gold" style="font-variation-settings: 'FILL' 1;">diamond</span>
+            </div>
+            <div class="text-center md:text-left">
+              <h3 class="font-headline-sm text-paper-white mb-2">Our Sourcing &amp; Quality Philosophy</h3>
+              <p class="font-body-md text-paper-white/70 leading-relaxed max-w-2xl">
+                We believe that preserving heritage and maintaining uncompromising quality are not mutually exclusive. Every product that leaves our facility carries the legacy of centuries-old craftsmanship validated by modern international standards — ensuring our partners and their customers experience the very best of India.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS OF TRADE MODAL -->
+  <div class="fixed inset-0 z-[100] modal-backdrop" id="trade-modal">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-deep-charcoal/70 backdrop-blur-md" onclick="closeTradeModal()"></div>
+
+    <!-- Modal Panel -->
+    <div class="modal-panel absolute inset-4 md:inset-8 lg:inset-12 xl:inset-16 bg-paper-white rounded-3xl shadow-2xl overflow-y-auto border border-cream/50" id="trade-modal-panel">
+      
+      <!-- Close Button -->
+      <button onclick="closeTradeModal()" class="sticky top-4 right-4 float-right z-20 mr-4 mt-4 w-10 h-10 bg-ivory hover:bg-cream rounded-full flex items-center justify-center text-on-surface-variant hover:text-deep-charcoal transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110 border border-cream/50" aria-label="Close modal">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+
+      <div class="p-8 md:p-12 lg:p-16 pt-6 md:pt-8">
+
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-tertiary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+
+        <!-- Section Header -->
+        <div class="text-center mb-12 lg:mb-16 relative z-10">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 shadow-sm mb-6">
+            <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">gavel</span>
+            <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Trade Guidelines</span>
+          </div>
+          <h2 class="font-headline-lg text-headline-lg text-deep-charcoal mb-4">Terms of Trade</h2>
+          <p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
+            We believe in transparent and seamless international trade. Below are our standard terms of trade for global buyers.
+          </p>
+        </div>
+
+        <!-- Five Terms Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 relative z-10">
+
+          <!-- Term 1: Pricing & Incoterms -->
+          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-heritage-gold via-heritage-gold/60 to-transparent"></div>
+            <div class="w-14 h-14 bg-heritage-gold/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-heritage-gold/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-heritage-gold" style="font-variation-settings: 'FILL' 1;">payments</span>
+            </div>
+            <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-heritage-gold transition-colors duration-300 font-semibold">Pricing &amp; Incoterms</h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
+              We offer highly competitive pricing. Quotations can be provided on FOB (Free on Board) or CIF (Cost, Insurance, and Freight) terms, depending on the buyer's preference and destination port.
+            </p>
+          </div>
+
+          <!-- Term 2: Payment Terms -->
+          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/60 to-transparent"></div>
+            <div class="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-secondary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+            </div>
+            <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-secondary transition-colors duration-300 font-semibold">Payment Terms</h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
+              For international orders, our standard payment terms include an advance payment via Wire Transfer (T/T) or an Irrevocable Letter of Credit (L/C) at sight for large commercial volumes.
+            </p>
+          </div>
+
+          <!-- Term 3: MOQ -->
+          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/60 to-transparent"></div>
+            <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+            </div>
+            <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-primary transition-colors duration-300 font-semibold">Minimum Order Quantity</h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
+              MOQs vary depending on the product category (Toys, Handicrafts, or Coir products). Please contact our sales team for product-specific MOQ details.
+            </p>
+          </div>
+
+          <!-- Term 4: Packaging -->
+          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-tertiary/60 to-transparent"></div>
+            <div class="w-14 h-14 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-tertiary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-tertiary" style="font-variation-settings: 'FILL' 1;">package_2</span>
+            </div>
+            <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-tertiary transition-colors duration-300 font-semibold">Packaging</h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
+              We utilize international standard, eco-friendly export packaging. Special care is taken for delicate items like Bidriware and Kinhal art to ensure they arrive in flawless condition.
+            </p>
+          </div>
+
+          <!-- Term 5: Lead Time & Shipping -->
+          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/60 to-transparent"></div>
+            <div class="w-14 h-14 bg-deep-charcoal/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-deep-charcoal/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-deep-charcoal" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+            </div>
+            <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 font-semibold">Lead Time &amp; Shipping</h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
+              Lead times depend on the order volume and artisan production cycles. We partner with reliable global logistics providers to ensure timely and secure delivery worldwide.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Bottom CTA Banner -->
+        <div class="mt-12 lg:mt-16 p-8 md:p-12 bg-deep-charcoal rounded-3xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-primary opacity-5 pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+            <div class="w-20 h-20 bg-paper-white/5 border border-paper-white/10 rounded-full flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-5xl text-heritage-gold" style="font-variation-settings: 'FILL' 1;">handshake</span>
+            </div>
+            <div class="text-center md:text-left flex-grow">
+              <h3 class="font-headline-sm text-paper-white mb-2">Trade &amp; Commercial Terms</h3>
+              <p class="font-body-md text-paper-white/70 leading-relaxed max-w-2xl">
+                Our trade terms are designed to foster long-lasting partnerships built on trust, transparency, and mutual benefit. For specific commercial terms tailored to your requirements, please reach out to our trade desk.
+              </p>
+            </div>
+            <a class="shimmer-button shrink-0 px-8 py-3.5 bg-heritage-gold text-deep-charcoal rounded-full font-label-lg text-label-lg uppercase tracking-widest shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" href="#contact" onclick="closeTradeModal()">Contact Trade Desk</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="bg-deep-charcoal text-paper-white pt-24 pb-12 relative overflow-hidden">
@@ -976,78 +1555,137 @@
       <div>
         <div class="flex items-center gap-3 mb-6">
           <span class="font-headline-sm text-heritage-gold text-2xl font-bold tracking-tight">GANGAWADI</span>
-          <span class="text-[10px] text-paper-white/40 uppercase tracking-[0.3em] border-l border-paper-white/20 pl-3">International</span>
+          <span
+            class="text-[10px] text-paper-white/40 uppercase tracking-[0.3em] border-l border-paper-white/20 pl-3">International</span>
         </div>
         <p class="font-body-md text-paper-white/60 mb-8 max-w-xs leading-relaxed text-sm">
-          The heritage export arm of Southern Karnataka, bridging sovereign dynasties, ancestral craftsmanship, and global trade excellence.
+          The heritage export arm of Southern Karnataka, bridging sovereign dynasties, ancestral craftsmanship, and
+          global trade excellence.
         </p>
-        
+
         <!-- Premium Social Media Icons -->
         <div class="flex gap-4">
           <!-- LinkedIn -->
-          <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110" href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110"
+            href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
           </a>
           <!-- Instagram -->
-          <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110"
+            href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
           </a>
           <!-- Facebook -->
-          <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+          <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110"
+            href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+            </svg>
           </a>
           <!-- WhatsApp -->
-          <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110" href="https://wa.me/919066619431" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.47 4.925 1.47 5.41 0 9.811-4.403 9.813-9.814.001-2.618-1.01-5.079-2.852-6.924C16.691 1.94 14.238.922 11.618.92 6.208.92 1.808 5.321 1.806 10.733c-.001 1.724.463 3.411 1.344 4.901l-.997 3.642 3.894-.982zm11.492-7.616c-.314-.157-1.857-.915-2.145-1.02-.288-.105-.499-.157-.708.157-.208.314-.808 1.02-.99 1.228-.182.208-.364.236-.678.079-.314-.157-1.328-.49-2.532-1.563-.936-.836-1.568-1.868-1.751-2.182-.182-.314-.02-.484.137-.641.141-.14.314-.368.471-.552.157-.184.21-.314.314-.525.105-.21.052-.394-.026-.552-.079-.157-.708-1.706-.971-2.336-.256-.615-.517-.532-.708-.541-.184-.01-.395-.01-.605-.01s-.552.079-.841.394c-.289.314-1.103 1.077-1.103 2.627 0 1.55 1.129 3.048 1.287 3.258.158.21 2.221 3.391 5.38 4.755.753.325 1.34.519 1.799.665.757.241 1.446.207 1.99.126.607-.09 1.857-.761 2.119-1.458.263-.696.263-1.293.184-1.42-.079-.126-.289-.209-.604-.366z"/></svg>
+          <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110"
+            href="https://wa.me/919066619431" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.47 4.925 1.47 5.41 0 9.811-4.403 9.813-9.814.001-2.618-1.01-5.079-2.852-6.924C16.691 1.94 14.238.922 11.618.92 6.208.92 1.808 5.321 1.806 10.733c-.001 1.724.463 3.411 1.344 4.901l-.997 3.642 3.894-.982zm11.492-7.616c-.314-.157-1.857-.915-2.145-1.02-.288-.105-.499-.157-.708.157-.208.314-.808 1.02-.99 1.228-.182.208-.364.236-.678.079-.314-.157-1.328-.49-2.532-1.563-.936-.836-1.568-1.868-1.751-2.182-.182-.314-.02-.484.137-.641.141-.14.314-.368.471-.552.157-.184.21-.314.314-.525.105-.21.052-.394-.026-.552-.079-.157-.708-1.706-.971-2.336-.256-.615-.517-.532-.708-.541-.184-.01-.395-.01-.605-.01s-.552.079-.841.394c-.289.314-1.103 1.077-1.103 2.627 0 1.55 1.129 3.048 1.287 3.258.158.21 2.221 3.391 5.38 4.755.753.325 1.34.519 1.799.665.757.241 1.446.207 1.99.126.607-.09 1.857-.761 2.119-1.458.263-.696.263-1.293.184-1.42-.079-.126-.289-.209-.604-.366z" />
+            </svg>
           </a>
         </div>
       </div>
       <div>
-        <h4 class="font-label-lg uppercase tracking-widest text-heritage-gold mb-8 text-xs font-bold">Export Categories</h4>
+        <h4 class="font-label-lg uppercase tracking-widest text-heritage-gold mb-8 text-xs font-bold">Export Categories
+        </h4>
         <ul class="space-y-4">
-          <li><a class="text-paper-white/60 hover:text-heritage-gold transition-colors text-sm flex items-center gap-2 group" href="#handicrafts"><span class="w-1.5 h-1.5 bg-heritage-gold/50 rounded-full transition-transform group-hover:scale-150"></span> Channapatna Toys &amp; Decor</a></li>
-          <li><a class="text-paper-white/60 hover:text-heritage-gold transition-colors text-sm flex items-center gap-2 group" href="#handicrafts"><span class="w-1.5 h-1.5 bg-heritage-gold/50 rounded-full transition-transform group-hover:scale-150"></span> Bidriware Silver Inlay</a></li>
-          <li><a class="text-paper-white/60 hover:text-heritage-gold transition-colors text-sm flex items-center gap-2 group" href="#handicrafts"><span class="w-1.5 h-1.5 bg-heritage-gold/50 rounded-full transition-transform group-hover:scale-150"></span> Kinnal Fine Art Statues</a></li>
-          <li><a class="text-paper-white/60 hover:text-heritage-gold transition-colors text-sm flex items-center gap-2 group" href="#agriculture"><span class="w-1.5 h-1.5 bg-heritage-gold/50 rounded-full transition-transform group-hover:scale-150"></span> Organic Agriculture &amp; Coirs</a></li>
+          <li><a
+              class="text-paper-white/60 hover:text-heritage-gold transition-colors text-sm flex items-center gap-2 group"
+              href="#handicrafts"><span
+                class="w-1.5 h-1.5 bg-heritage-gold/50 rounded-full transition-transform group-hover:scale-150"></span>
+              Channapatna Toys &amp; Decor</a></li>
+          <li><a
+              class="text-paper-white/60 hover:text-heritage-gold transition-colors text-sm flex items-center gap-2 group"
+              href="#handicrafts"><span
+                class="w-1.5 h-1.5 bg-heritage-gold/50 rounded-full transition-transform group-hover:scale-150"></span>
+              Bidriware Silver Inlay</a></li>
+          <li><a
+              class="text-paper-white/60 hover:text-heritage-gold transition-colors text-sm flex items-center gap-2 group"
+              href="#handicrafts"><span
+                class="w-1.5 h-1.5 bg-heritage-gold/50 rounded-full transition-transform group-hover:scale-150"></span>
+              Kinnal Fine Art Statues</a></li>
+          <li><a
+              class="text-paper-white/60 hover:text-heritage-gold transition-colors text-sm flex items-center gap-2 group"
+              href="#agriculture"><span
+                class="w-1.5 h-1.5 bg-heritage-gold/50 rounded-full transition-transform group-hover:scale-150"></span>
+              Organic Agriculture &amp; Coirs</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-label-lg uppercase tracking-widest text-heritage-gold mb-8 text-xs font-bold">Fulfillment Credentials</h4>
+        <h4 class="font-label-lg uppercase tracking-widest text-heritage-gold mb-8 text-xs font-bold">Fulfillment
+          Credentials</h4>
         <div class="flex flex-wrap gap-2 mb-8">
-          <span class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">EN71 Compliance</span>
-          <span class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">ISO 9001:2015</span>
-          <span class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">ST TOY MARK</span>
-          <span class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">GI REGISTERED</span>
-          <span class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">APEDA BOARD</span>
+          <span
+            class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">EN71
+            Compliance</span>
+          <span
+            class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">ISO
+            9001:2015</span>
+          <span
+            class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">ST
+            TOY MARK</span>
+          <span
+            class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">GI
+            REGISTERED</span>
+          <span
+            class="px-2 py-1 border border-paper-white/10 text-[10px] uppercase tracking-widest text-paper-white/70">APEDA
+            BOARD</span>
         </div>
-        <p class="text-paper-white/40 text-xs leading-relaxed">Primary Freight Ports: Chennai Sea Port (INMAA1), Bengaluru Air Cargo (INBLR4), New Mangalore Port (INNML1).</p>
+        <p class="text-paper-white/40 text-xs leading-relaxed">Primary Freight Ports: Chennai Sea Port (INMAA1),
+          Bengaluru Air Cargo (INBLR4), New Mangalore Port (INNML1).</p>
       </div>
     </div>
-    <div class="max-w-container-max mx-auto px-8 pt-12 border-t border-paper-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-      <p class="text-xs text-paper-white/30 uppercase tracking-widest">© 2026 Gangawadi International. Royal Heritage. Modern Sourcing.</p>
+    <div
+      class="max-w-container-max mx-auto px-8 pt-12 border-t border-paper-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+      <p class="text-xs text-paper-white/30 uppercase tracking-widest">© 2026 Gangawadi International. Royal Heritage.
+        Modern Sourcing.</p>
       <div class="flex gap-8">
-        <a class="text-xs text-paper-white/30 hover:text-heritage-gold transition-colors uppercase tracking-widest" href="#">Privacy Policy</a>
-        <a class="text-xs text-paper-white/30 hover:text-heritage-gold transition-colors uppercase tracking-widest" href="#">Terms of Trade</a>
-        <a class="text-xs text-paper-white/30 hover:text-heritage-gold transition-colors uppercase tracking-widest" href="#">Sourcing Quality Policy</a>
+        <a class="text-xs text-paper-white/30 hover:text-heritage-gold transition-colors uppercase tracking-widest"
+          href="#">Privacy Policy</a>
+        <a class="text-xs text-paper-white/30 hover:text-heritage-gold transition-colors uppercase tracking-widest cursor-pointer"
+          onclick="openTradeModal(event)">Terms of Trade</a>
+        <a class="text-xs text-paper-white/30 hover:text-heritage-gold transition-colors uppercase tracking-widest cursor-pointer" onclick="openQualityModal(event)">Sourcing Quality Policy</a>
       </div>
     </div>
   </footer>
+
+  <style>
+    /* Modal Styles */
+    #quality-modal, #trade-modal { opacity: 0; pointer-events: none; transition: opacity 0.5s ease; }
+    #quality-modal.open, #trade-modal.open { opacity: 1; pointer-events: auto; }
+    .modal-panel { transform: scale(0.95); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+    #quality-modal.open .modal-panel, #trade-modal.open .modal-panel { transform: scale(1); }
+  </style>
 
   <script>
     // Sourcing Form Submit Handler
     async function handleFormSubmit(event) {
       event.preventDefault();
-      
+
       const form = event.target;
       const submitBtn = document.getElementById('submit-btn');
       const submitBtnText = document.getElementById('submit-btn-text');
       const errorDiv = document.getElementById('form-error');
       const errorText = document.getElementById('form-error-text');
       const successOverlay = document.getElementById('form-success');
-      
+
       // Reset error division
       errorDiv.classList.add('hidden');
-      
+
       // Update Button state to show visual loader
       submitBtn.disabled = true;
       submitBtnText.textContent = "Sending Sourcing Brief...";
@@ -1066,7 +1704,7 @@
         // Send email securely in the background via free AJAX mail gateway
         const response = await fetch("https://formsubmit.co/ajax/a.vijikrishna@gmail.com", {
           method: "POST",
-          headers: { 
+          headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
           },
@@ -1137,7 +1775,7 @@
     faqItems.forEach(item => {
       item.addEventListener('click', () => {
         const isCurrentlyOpen = item.querySelector('.faq-collapse').classList.contains('open');
-        
+
         // Close all other FAQs
         faqItems.forEach(otherItem => {
           otherItem.querySelector('.faq-collapse').classList.remove('open');
@@ -1170,7 +1808,7 @@
         menuDrawer.classList.remove('translate-x-full');
         menuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
         menuIcon.textContent = 'close';
-        
+
         // Stagger list items animations
         mobileNavItems.forEach((item, index) => {
           setTimeout(() => {
@@ -1183,7 +1821,7 @@
         menuDrawer.classList.add('translate-x-full');
         menuBackdrop.classList.add('opacity-0', 'pointer-events-none');
         menuIcon.textContent = 'menu';
-        
+
         // Reset list animations
         mobileNavItems.forEach((item) => {
           item.classList.add('opacity-0', 'translate-x-4');
@@ -1201,6 +1839,52 @@
         if (menuOpen) toggleMenu();
       });
     });
+
+    // Sourcing & Quality Policy Modal Logic
+    const qualityModal = document.getElementById('quality-modal');
+    const qualityModalPanel = document.getElementById('quality-modal-panel');
+
+    function openQualityModal(e) {
+      if (e) e.preventDefault();
+      qualityModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // Scroll modal panel to top
+      if (qualityModalPanel) qualityModalPanel.scrollTop = 0;
+      // Close mobile menu if open
+      if (menuOpen) toggleMenu();
+    }
+
+    function closeQualityModal() {
+      qualityModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on Escape key
+    // Terms of Trade Modal Logic
+    const tradeModal = document.getElementById('trade-modal');
+    const tradeModalPanel = document.getElementById('trade-modal-panel');
+
+    function openTradeModal(e) {
+      if (e) e.preventDefault();
+      tradeModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (tradeModalPanel) tradeModalPanel.scrollTop = 0;
+      if (menuOpen) toggleMenu();
+    }
+
+    function closeTradeModal() {
+      tradeModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close any open modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (qualityModal.classList.contains('open')) closeQualityModal();
+        if (tradeModal.classList.contains('open')) closeTradeModal();
+      }
+    });
   </script>
 </body>
+
 </html>
