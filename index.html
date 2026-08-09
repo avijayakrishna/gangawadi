@@ -145,29 +145,36 @@
       pointer-events: none;
       transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .modal-backdrop.open {
       opacity: 1;
       pointer-events: auto;
     }
+
     .modal-panel {
       transform: translateY(40px) scale(0.96);
       opacity: 0;
       transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
     }
+
     .modal-backdrop.open .modal-panel {
       transform: translateY(0) scale(1);
       opacity: 1;
     }
+
     .modal-panel::-webkit-scrollbar {
       width: 6px;
     }
+
     .modal-panel::-webkit-scrollbar-track {
       background: transparent;
     }
+
     .modal-panel::-webkit-scrollbar-thumb {
       background: rgba(212, 175, 55, 0.3);
       border-radius: 3px;
     }
+
     .modal-panel::-webkit-scrollbar-thumb:hover {
       background: rgba(212, 175, 55, 0.5);
     }
@@ -298,14 +305,13 @@
   <!-- TOP APP BAR -->
   <header
     class="fixed top-0 w-full z-50 glass-nav bg-ivory/80 border-b border-cream/30 shadow-sm h-20 transition-all duration-500">
-    <div
-      class="max-w-container-max mx-auto px-6 lg:px-8 h-full flex justify-between items-center gap-4 md:gap-8 lg:gap-12">
+    <div class="w-full px-6 lg:px-10 xl:px-12 h-full flex justify-between items-center gap-4 md:gap-8 lg:gap-12">
       <div class="flex items-center gap-3 shrink-0">
         <a href="index.html" class="flex items-center gap-3">
           <!-- Logo with robust fallback setup -->
           <img alt="Gangawadi Logo"
             class="h-12 lg:h-14 w-auto object-contain transition-transform duration-500 hover:scale-110 hover:rotate-3 rounded"
-            src="logo.jpeg"
+            src="images/logo.jpeg"
             onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuD6yfgDcAen7MDnhWSrz-UdLKAniOPnJ2zjVG4Rgx5dvdT_WXZj1BIwJfHTQgNVP4tzsJOaDJHpWCo9DeeGUg7yncGxPqckgP65F3EOyI9LYv6rFXlTyRw8r2FYoNMhXdc9pFgrAL3XctL4GNWDptGJzhOUaBffnuq4AO3rwUyAaNqenRX0GY_41E9CzIhiK50lOnlYwjPWsJjiUxp2775zVsuPvTM2ywT3qPIPDiiTLz9u-jeBVfJhaEtafrLSnzzDO1VaEpj2AQKB';" />
           <div class="hidden sm:block">
             <span
@@ -316,24 +322,25 @@
         </a>
       </div>
 
-      <!-- Desktop Navigation & Alignments -->
-      <nav class="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 h-full">
-        <!-- Menu Items with custom adaptive sizing preventing layout overflow -->
-        <div class="flex items-center gap-3 lg:gap-5 xl:gap-7">
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
-            href="#handicrafts">Handicrafts</a>
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
-            href="#agriculture">Agriculture</a>
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
-            href="#heritage">Heritage</a>
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
-            href="#process">Process</a>
-          <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
-            href="#faq">FAQ</a>
-        </div>
+      <!-- Center Navigation Menu -->
+      <nav
+        class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-4 lg:gap-6 xl:gap-8 h-full">
+        <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+          href="#handicrafts">Handicrafts</a>
+        <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+          href="#agriculture">Agriculture</a>
+        <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+          href="#heritage">Heritage</a>
+        <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+          href="#process">Process</a>
+        <a class="relative font-semibold text-[11px] lg:text-[13px] xl:text-[14px] uppercase tracking-wider lg:tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300 gold-border-decor py-1 shrink-0"
+          href="#faq">FAQ</a>
+      </nav>
 
-        <!-- Social Icons Block with absolute vertical centering & separator -->
-        <div class="flex items-center gap-3 border-l border-cream/60 pl-4 lg:pl-6 h-6 shrink-0">
+      <!-- Right Actions (Social Icons & CTA) -->
+      <div class="hidden md:flex flex-col items-center justify-center gap-1.5 h-full shrink-0">
+        <!-- Social Icons Block -->
+        <div class="flex items-center gap-3 shrink-0">
           <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/vinay-b-h-57818641a" target="_blank" rel="noopener noreferrer"
             class="text-on-surface-variant hover:text-primary transition-all duration-300 transform hover:scale-110 flex items-center"
@@ -375,7 +382,7 @@
         <!-- CTA button scale constraints preventing baseline wrap -->
         <a class="shimmer-button font-label-lg text-[10px] lg:text-[12px] xl:text-label-lg uppercase tracking-wider lg:tracking-widest bg-primary text-paper-white px-4 lg:px-6 xl:px-7 py-2.5 lg:py-3 rounded-full hover:bg-deep-charcoal hover:shadow-lg transition-all duration-300 transform active:scale-95 shadow-md shadow-primary/15 shrink-0"
           href="#contact">Partner With Us</a>
-      </nav>
+      </div>
 
       <!-- Hamburger Button -->
       <button class="md:hidden p-2 text-deep-charcoal relative focus:outline-none z-50" id="mobile-menu-toggle"
@@ -635,7 +642,8 @@
                 with organic dyes and ivory wood on traditional lathes.</p>
               <div class="flex items-center justify-end pt-6 border-t border-cream mt-auto shrink-0">
                 <a class="text-primary font-label-lg uppercase tracking-widest flex items-center gap-1 group/link hover:text-deep-charcoal transition-colors duration-300"
-                  href="#contact" target="_blank" rel="noopener noreferrer">Catalogue <span
+                  href="https://drive.google.com/file/d/1GjdS1FgOBcI97DxiyBIeJGHX3J78e05R/view?usp=drive_link"
+                  target="_blank" rel="noopener noreferrer">Catalogue <span
                     class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1.5">arrow_forward</span></a>
               </div>
             </div>
@@ -1193,7 +1201,8 @@
                   Enquiries</p>
                 <p
                   class="text-xl font-headline-md text-deep-charcoal font-semibold hover:text-primary transition-colors">
-                  <a href="mailto:exports@gangawadi.com">exports@gangawadi.com</a></p>
+                  <a href="mailto:exports@gangawadi.com">exports@gangawadi.com</a>
+                </p>
               </div>
             </div>
             <!-- Phone -->
@@ -1207,7 +1216,8 @@
                   Helpline</p>
                 <p
                   class="text-xl font-headline-md text-deep-charcoal font-semibold hover:text-primary transition-colors">
-                  <a href="tel:+919066619431">+91 9066619431</a></p>
+                  <a href="tel:+919066619431">+91 9066619431</a>
+                </p>
               </div>
             </div>
             <!-- Location -->
@@ -1324,28 +1334,40 @@
     <div class="absolute inset-0 bg-deep-charcoal/70 backdrop-blur-md" onclick="closeQualityModal()"></div>
 
     <!-- Modal Panel -->
-    <div class="modal-panel absolute inset-4 md:inset-8 lg:inset-12 xl:inset-16 bg-paper-white rounded-3xl shadow-2xl overflow-y-auto border border-cream/50" id="quality-modal-panel">
-      
+    <div
+      class="modal-panel absolute inset-4 md:inset-8 lg:inset-12 xl:inset-16 bg-paper-white rounded-3xl shadow-2xl overflow-y-auto border border-cream/50"
+      id="quality-modal-panel">
+
       <!-- Close Button -->
-      <button onclick="closeQualityModal()" class="sticky top-4 right-4 float-right z-20 mr-4 mt-4 w-10 h-10 bg-ivory hover:bg-cream rounded-full flex items-center justify-center text-on-surface-variant hover:text-deep-charcoal transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110 border border-cream/50" aria-label="Close modal">
+      <button onclick="closeQualityModal()"
+        class="sticky top-4 right-4 float-right z-20 mr-4 mt-4 w-10 h-10 bg-ivory hover:bg-cream rounded-full flex items-center justify-center text-on-surface-variant hover:text-deep-charcoal transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110 border border-cream/50"
+        aria-label="Close modal">
         <span class="material-symbols-outlined text-xl">close</span>
       </button>
 
       <div class="p-8 md:p-12 lg:p-16 pt-6 md:pt-8">
 
         <!-- Decorative background elements -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-heritage-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+        <div
+          class="absolute top-0 right-0 w-96 h-96 bg-heritage-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none">
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none">
+        </div>
 
         <!-- Section Header -->
         <div class="text-center mb-12 lg:mb-16 relative z-10">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-heritage-gold/10 border border-heritage-gold/20 shadow-sm mb-6">
-            <span class="material-symbols-outlined text-heritage-gold text-sm" style="font-variation-settings: 'FILL' 1;">shield</span>
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-heritage-gold/10 border border-heritage-gold/20 shadow-sm mb-6">
+            <span class="material-symbols-outlined text-heritage-gold text-sm"
+              style="font-variation-settings: 'FILL' 1;">shield</span>
             <span class="font-label-sm text-label-sm text-heritage-gold uppercase tracking-widest">Our Commitment</span>
           </div>
           <h2 class="font-headline-lg text-headline-lg text-deep-charcoal mb-4">Sourcing &amp; Quality Policy</h2>
           <p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
-            At Gangawadi International Private Limited, we are deeply committed to sustainable sourcing, ethical trade, and preserving India's rich cultural heritage. We ensure that our global clients receive only the finest, authentic products.
+            At Gangawadi International Private Limited, we are deeply committed to sustainable sourcing, ethical trade,
+            and preserving India's rich cultural heritage. We ensure that our global clients receive only the finest,
+            authentic products.
           </p>
         </div>
 
@@ -1353,55 +1375,86 @@
         <div class="grid md:grid-cols-3 gap-8 lg:gap-10 relative z-10">
 
           <!-- Pillar 1: Artisan-Direct Sourcing -->
-          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-heritage-gold via-heritage-gold/60 to-transparent"></div>
-            <div class="w-16 h-16 bg-heritage-gold/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-heritage-gold/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-              <span class="material-symbols-outlined text-4xl text-heritage-gold" style="font-variation-settings: 'FILL' 1;">handshake</span>
+          <div
+            class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-heritage-gold via-heritage-gold/60 to-transparent">
             </div>
-            <h3 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 group-hover:text-heritage-gold transition-colors duration-300">Artisan-Direct Sourcing</h3>
+            <div
+              class="w-16 h-16 bg-heritage-gold/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-heritage-gold/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-4xl text-heritage-gold"
+                style="font-variation-settings: 'FILL' 1;">handshake</span>
+            </div>
+            <h3
+              class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 group-hover:text-heritage-gold transition-colors duration-300">
+              Artisan-Direct Sourcing</h3>
             <p class="font-body-md text-on-surface-variant leading-relaxed">
-              We source our world-renowned Channapatna toys, Kinhal art, and Bidriware directly from skilled traditional artisans. This ensures fair compensation for the creators and authentic products for our buyers.
+              We source our world-renowned Channapatna toys, Kinhal art, and Bidriware directly from skilled traditional
+              artisans. This ensures fair compensation for the creators and authentic products for our buyers.
             </p>
             <div class="mt-6 pt-6 border-t border-cream/60">
               <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                <span class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">Fair Trade Guaranteed</span>
+                <span class="material-symbols-outlined text-sm text-secondary"
+                  style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">Fair Trade
+                  Guaranteed</span>
               </div>
             </div>
           </div>
 
           <!-- Pillar 2: Eco-Friendly & Safe Materials -->
-          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/60 to-transparent"></div>
-            <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-              <span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">eco</span>
+          <div
+            class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/60 to-transparent">
             </div>
-            <h3 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 group-hover:text-secondary transition-colors duration-300">Eco-Friendly &amp; Safe Materials</h3>
+            <div
+              class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-4xl text-secondary"
+                style="font-variation-settings: 'FILL' 1;">eco</span>
+            </div>
+            <h3
+              class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 group-hover:text-secondary transition-colors duration-300">
+              Eco-Friendly &amp; Safe Materials</h3>
             <p class="font-body-md text-on-surface-variant leading-relaxed">
-              Sustainability is at the core of our business. Our wooden crafts and toys are made using sustainably harvested wood and non-toxic, natural vegetable dyes, making them completely safe. Our coir products are 100% natural, biodegradable, and sourced from premium agricultural belts.
+              Sustainability is at the core of our business. Our wooden crafts and toys are made using sustainably
+              harvested wood and non-toxic, natural vegetable dyes, making them completely safe. Our coir products are
+              100% natural, biodegradable, and sourced from premium agricultural belts.
             </p>
             <div class="mt-6 pt-6 border-t border-cream/60">
               <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                <span class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">100% Non-Toxic &amp; Biodegradable</span>
+                <span class="material-symbols-outlined text-sm text-secondary"
+                  style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">100% Non-Toxic
+                  &amp; Biodegradable</span>
               </div>
             </div>
           </div>
 
           <!-- Pillar 3: Rigorous Quality Assurance -->
-          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/60 to-transparent"></div>
-            <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-              <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+          <div
+            class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/60 to-transparent">
             </div>
-            <h3 class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 group-hover:text-primary transition-colors duration-300">Rigorous Quality Assurance</h3>
+            <div
+              class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-4xl text-primary"
+                style="font-variation-settings: 'FILL' 1;">verified</span>
+            </div>
+            <h3
+              class="font-headline-sm text-headline-sm text-deep-charcoal mb-4 group-hover:text-primary transition-colors duration-300">
+              Rigorous Quality Assurance</h3>
             <p class="font-body-md text-on-surface-variant leading-relaxed">
-              Every product undergoes strict quality inspections. From the structural integrity of our coir products to the fine detailing of Bidriware and the safety standards of our toys, we ensure everything meets international export compliance before shipment.
+              Every product undergoes strict quality inspections. From the structural integrity of our coir products to
+              the fine detailing of Bidriware and the safety standards of our toys, we ensure everything meets
+              international export compliance before shipment.
             </p>
             <div class="mt-6 pt-6 border-t border-cream/60">
               <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                <span class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">International Export Compliant</span>
+                <span class="material-symbols-outlined text-sm text-secondary"
+                  style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                <span class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">International
+                  Export Compliant</span>
               </div>
             </div>
           </div>
@@ -1412,13 +1465,18 @@
         <div class="mt-12 lg:mt-16 p-8 md:p-12 bg-deep-charcoal rounded-3xl relative overflow-hidden">
           <div class="absolute inset-0 bg-heritage-gold opacity-5 pointer-events-none"></div>
           <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
-            <div class="w-20 h-20 bg-paper-white/5 border border-paper-white/10 rounded-full flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-5xl text-heritage-gold" style="font-variation-settings: 'FILL' 1;">diamond</span>
+            <div
+              class="w-20 h-20 bg-paper-white/5 border border-paper-white/10 rounded-full flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-5xl text-heritage-gold"
+                style="font-variation-settings: 'FILL' 1;">diamond</span>
             </div>
             <div class="text-center md:text-left">
               <h3 class="font-headline-sm text-paper-white mb-2">Our Sourcing &amp; Quality Philosophy</h3>
               <p class="font-body-md text-paper-white/70 leading-relaxed max-w-2xl">
-                We believe that preserving heritage and maintaining uncompromising quality are not mutually exclusive. Every product that leaves our facility carries the legacy of centuries-old craftsmanship validated by modern international standards — ensuring our partners and their customers experience the very best of India.
+                We believe that preserving heritage and maintaining uncompromising quality are not mutually exclusive.
+                Every product that leaves our facility carries the legacy of centuries-old craftsmanship validated by
+                modern international standards — ensuring our partners and their customers experience the very best of
+                India.
               </p>
             </div>
           </div>
@@ -1434,28 +1492,39 @@
     <div class="absolute inset-0 bg-deep-charcoal/70 backdrop-blur-md" onclick="closeTradeModal()"></div>
 
     <!-- Modal Panel -->
-    <div class="modal-panel absolute inset-4 md:inset-8 lg:inset-12 xl:inset-16 bg-paper-white rounded-3xl shadow-2xl overflow-y-auto border border-cream/50" id="trade-modal-panel">
-      
+    <div
+      class="modal-panel absolute inset-4 md:inset-8 lg:inset-12 xl:inset-16 bg-paper-white rounded-3xl shadow-2xl overflow-y-auto border border-cream/50"
+      id="trade-modal-panel">
+
       <!-- Close Button -->
-      <button onclick="closeTradeModal()" class="sticky top-4 right-4 float-right z-20 mr-4 mt-4 w-10 h-10 bg-ivory hover:bg-cream rounded-full flex items-center justify-center text-on-surface-variant hover:text-deep-charcoal transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110 border border-cream/50" aria-label="Close modal">
+      <button onclick="closeTradeModal()"
+        class="sticky top-4 right-4 float-right z-20 mr-4 mt-4 w-10 h-10 bg-ivory hover:bg-cream rounded-full flex items-center justify-center text-on-surface-variant hover:text-deep-charcoal transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110 border border-cream/50"
+        aria-label="Close modal">
         <span class="material-symbols-outlined text-xl">close</span>
       </button>
 
       <div class="p-8 md:p-12 lg:p-16 pt-6 md:pt-8">
 
         <!-- Decorative background elements -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-tertiary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+        <div
+          class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none">
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-80 h-80 bg-tertiary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none">
+        </div>
 
         <!-- Section Header -->
         <div class="text-center mb-12 lg:mb-16 relative z-10">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 shadow-sm mb-6">
-            <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">gavel</span>
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 shadow-sm mb-6">
+            <span class="material-symbols-outlined text-primary text-sm"
+              style="font-variation-settings: 'FILL' 1;">gavel</span>
             <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Trade Guidelines</span>
           </div>
           <h2 class="font-headline-lg text-headline-lg text-deep-charcoal mb-4">Terms of Trade</h2>
           <p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
-            We believe in transparent and seamless international trade. Below are our standard terms of trade for global buyers.
+            We believe in transparent and seamless international trade. Below are our standard terms of trade for global
+            buyers.
           </p>
         </div>
 
@@ -1463,62 +1532,98 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 relative z-10">
 
           <!-- Term 1: Pricing & Incoterms -->
-          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-heritage-gold via-heritage-gold/60 to-transparent"></div>
-            <div class="w-14 h-14 bg-heritage-gold/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-heritage-gold/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-              <span class="material-symbols-outlined text-3xl text-heritage-gold" style="font-variation-settings: 'FILL' 1;">payments</span>
+          <div
+            class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-heritage-gold via-heritage-gold/60 to-transparent">
             </div>
-            <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-heritage-gold transition-colors duration-300 font-semibold">Pricing &amp; Incoterms</h3>
+            <div
+              class="w-14 h-14 bg-heritage-gold/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-heritage-gold/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-heritage-gold"
+                style="font-variation-settings: 'FILL' 1;">payments</span>
+            </div>
+            <h3
+              class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-heritage-gold transition-colors duration-300 font-semibold">
+              Pricing &amp; Incoterms</h3>
             <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
-              We offer highly competitive pricing. Quotations can be provided on FOB (Free on Board) or CIF (Cost, Insurance, and Freight) terms, depending on the buyer's preference and destination port.
+              We offer highly competitive pricing. Quotations can be provided on FOB (Free on Board) or CIF (Cost,
+              Insurance, and Freight) terms, depending on the buyer's preference and destination port.
             </p>
           </div>
 
           <!-- Term 2: Payment Terms -->
-          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/60 to-transparent"></div>
-            <div class="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-              <span class="material-symbols-outlined text-3xl text-secondary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+          <div
+            class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/60 to-transparent">
             </div>
-            <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-secondary transition-colors duration-300 font-semibold">Payment Terms</h3>
+            <div
+              class="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-secondary"
+                style="font-variation-settings: 'FILL' 1;">account_balance</span>
+            </div>
+            <h3
+              class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-secondary transition-colors duration-300 font-semibold">
+              Payment Terms</h3>
             <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
-              For international orders, our standard payment terms include an advance payment via Wire Transfer (T/T) or an Irrevocable Letter of Credit (L/C) at sight for large commercial volumes.
+              For international orders, our standard payment terms include an advance payment via Wire Transfer (T/T) or
+              an Irrevocable Letter of Credit (L/C) at sight for large commercial volumes.
             </p>
           </div>
 
           <!-- Term 3: MOQ -->
-          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/60 to-transparent"></div>
-            <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-              <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+          <div
+            class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/60 to-transparent">
             </div>
-            <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-primary transition-colors duration-300 font-semibold">Minimum Order Quantity</h3>
+            <div
+              class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-primary"
+                style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+            </div>
+            <h3
+              class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-primary transition-colors duration-300 font-semibold">
+              Minimum Order Quantity</h3>
             <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
-              MOQs vary depending on the product category (Toys, Handicrafts, or Coir products). Please contact our sales team for product-specific MOQ details.
+              MOQs vary depending on the product category (Toys, Handicrafts, or Coir products). Please contact our
+              sales team for product-specific MOQ details.
             </p>
           </div>
 
           <!-- Term 4: Packaging -->
-          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-tertiary/60 to-transparent"></div>
-            <div class="w-14 h-14 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-tertiary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-              <span class="material-symbols-outlined text-3xl text-tertiary" style="font-variation-settings: 'FILL' 1;">package_2</span>
+          <div
+            class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-tertiary/60 to-transparent">
             </div>
-            <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-tertiary transition-colors duration-300 font-semibold">Packaging</h3>
+            <div
+              class="w-14 h-14 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-tertiary/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-tertiary"
+                style="font-variation-settings: 'FILL' 1;">package_2</span>
+            </div>
+            <h3
+              class="font-headline-sm text-[20px] text-deep-charcoal mb-3 group-hover:text-tertiary transition-colors duration-300 font-semibold">
+              Packaging</h3>
             <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
-              We utilize international standard, eco-friendly export packaging. Special care is taken for delicate items like Bidriware and Kinhal art to ensure they arrive in flawless condition.
+              We utilize international standard, eco-friendly export packaging. Special care is taken for delicate items
+              like Bidriware and Kinhal art to ensure they arrive in flawless condition.
             </p>
           </div>
 
           <!-- Term 5: Lead Time & Shipping -->
-          <div class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/60 to-transparent"></div>
-            <div class="w-14 h-14 bg-deep-charcoal/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-deep-charcoal/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-              <span class="material-symbols-outlined text-3xl text-deep-charcoal" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+          <div
+            class="relative p-8 lg:p-10 bg-surface-bright border border-cream rounded-3xl card-hover-lift group overflow-hidden">
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/60 to-transparent">
+            </div>
+            <div
+              class="w-14 h-14 bg-deep-charcoal/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-deep-charcoal/20 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+              <span class="material-symbols-outlined text-3xl text-deep-charcoal"
+                style="font-variation-settings: 'FILL' 1;">local_shipping</span>
             </div>
             <h3 class="font-headline-sm text-[20px] text-deep-charcoal mb-3 font-semibold">Lead Time &amp; Shipping</h3>
             <p class="font-body-md text-on-surface-variant leading-relaxed text-sm">
-              Lead times depend on the order volume and artisan production cycles. We partner with reliable global logistics providers to ensure timely and secure delivery worldwide.
+              Lead times depend on the order volume and artisan production cycles. We partner with reliable global
+              logistics providers to ensure timely and secure delivery worldwide.
             </p>
           </div>
 
@@ -1528,16 +1633,21 @@
         <div class="mt-12 lg:mt-16 p-8 md:p-12 bg-deep-charcoal rounded-3xl relative overflow-hidden">
           <div class="absolute inset-0 bg-primary opacity-5 pointer-events-none"></div>
           <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
-            <div class="w-20 h-20 bg-paper-white/5 border border-paper-white/10 rounded-full flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-5xl text-heritage-gold" style="font-variation-settings: 'FILL' 1;">handshake</span>
+            <div
+              class="w-20 h-20 bg-paper-white/5 border border-paper-white/10 rounded-full flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-5xl text-heritage-gold"
+                style="font-variation-settings: 'FILL' 1;">handshake</span>
             </div>
             <div class="text-center md:text-left flex-grow">
               <h3 class="font-headline-sm text-paper-white mb-2">Trade &amp; Commercial Terms</h3>
               <p class="font-body-md text-paper-white/70 leading-relaxed max-w-2xl">
-                Our trade terms are designed to foster long-lasting partnerships built on trust, transparency, and mutual benefit. For specific commercial terms tailored to your requirements, please reach out to our trade desk.
+                Our trade terms are designed to foster long-lasting partnerships built on trust, transparency, and
+                mutual benefit. For specific commercial terms tailored to your requirements, please reach out to our
+                trade desk.
               </p>
             </div>
-            <a class="shimmer-button shrink-0 px-8 py-3.5 bg-heritage-gold text-deep-charcoal rounded-full font-label-lg text-label-lg uppercase tracking-widest shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" href="#contact" onclick="closeTradeModal()">Contact Trade Desk</a>
+            <a class="shimmer-button shrink-0 px-8 py-3.5 bg-heritage-gold text-deep-charcoal rounded-full font-label-lg text-label-lg uppercase tracking-widest shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+              href="#contact" onclick="closeTradeModal()">Contact Trade Desk</a>
           </div>
         </div>
 
@@ -1563,7 +1673,8 @@
         <div class="flex gap-4">
           <!-- LinkedIn -->
           <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110"
-            href="https://www.linkedin.com/in/vinay-b-h-57818641a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            href="https://www.linkedin.com/in/vinay-b-h-57818641a" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn">
             <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
               <path
                 d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -1571,7 +1682,8 @@
           </a>
           <!-- Instagram -->
           <a class="w-10 h-10 rounded-full border border-paper-white/10 flex items-center justify-center hover:bg-heritage-gold hover:border-heritage-gold hover:text-deep-charcoal text-paper-white transition-all duration-300 transform hover:scale-110"
-            href="https://www.instagram.com/gangawadi_international/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            href="https://www.instagram.com/gangawadi_international/?hl=en" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram">
             <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
               <path
                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -1654,17 +1766,36 @@
           href="#">Privacy Policy</a>
         <a class="text-xs text-paper-white/30 hover:text-heritage-gold transition-colors uppercase tracking-widest cursor-pointer"
           onclick="openTradeModal(event)">Terms of Trade</a>
-        <a class="text-xs text-paper-white/30 hover:text-heritage-gold transition-colors uppercase tracking-widest cursor-pointer" onclick="openQualityModal(event)">Sourcing Quality Policy</a>
+        <a class="text-xs text-paper-white/30 hover:text-heritage-gold transition-colors uppercase tracking-widest cursor-pointer"
+          onclick="openQualityModal(event)">Sourcing Quality Policy</a>
       </div>
     </div>
   </footer>
 
   <style>
     /* Modal Styles */
-    #quality-modal, #trade-modal { opacity: 0; pointer-events: none; transition: opacity 0.5s ease; }
-    #quality-modal.open, #trade-modal.open { opacity: 1; pointer-events: auto; }
-    .modal-panel { transform: scale(0.95); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-    #quality-modal.open .modal-panel, #trade-modal.open .modal-panel { transform: scale(1); }
+    #quality-modal,
+    #trade-modal {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    #quality-modal.open,
+    #trade-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-panel {
+      transform: scale(0.95);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #quality-modal.open .modal-panel,
+    #trade-modal.open .modal-panel {
+      transform: scale(1);
+    }
   </style>
 
   <script>
